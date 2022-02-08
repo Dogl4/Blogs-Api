@@ -1,8 +1,8 @@
 const { userService } = require('../services');
-const validateUser = require('../schemas/user');
+const { user } = require('../schemas');
 
 const registerUser = async (req, res, _next) => {
-  const { error } = validateUser.validate(req.body);
+  const { error } = user.validate(req.body);
   if (error) throw error;
   await userService.isUniqueEmail(req.body.email);
 

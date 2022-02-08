@@ -7,6 +7,7 @@ const middlewares = require('./middlewares');
 app.use(bodyParser.json());
 
 app.use('/user', router.user);
+app.use('/login', router.login);
 
 app.use(middlewares.joiError);
 app.use(middlewares.domainError);

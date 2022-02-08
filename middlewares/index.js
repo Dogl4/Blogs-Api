@@ -3,9 +3,11 @@
 const joiError = require('./joi-error');
 const domainError = require('./domain-error');
 const serverError = require('./server-error');
+const generateError = require('./generateError');
 
 module.exports = {
   joiError,
   domainError,
   serverError,
+  generateError,
 };

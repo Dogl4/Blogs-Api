@@ -1,7 +1,7 @@
 const rescue = require('express-rescue');
 const router = require('express').Router();
-const { userController } = require('../controllers');
+const { loginController } = require('../controllers');
 
-router.post('/', rescue(userController.registerUser));
+router.post('/', rescue(loginController.connecting));
 
 module.exports = router;
