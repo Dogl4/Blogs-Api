@@ -5,6 +5,11 @@ const isUniqueCategorie = async (name) => {
   return categorie && categorie.dataValues;
 };
 
+const existsCategorieId = async (id) => {
+  const categorie = await Categorie.findOne({ where: { id } });
+  return categorie && categorie.dataValues;
+};
+
 const createCategorie = (name) => Categorie.create(name);
 
 const getCategories = async () => {
@@ -14,6 +19,7 @@ const getCategories = async () => {
 
 module.exports = {
   isUniqueCategorie,
+  existsCategorieId,
   createCategorie,
   getCategories,
 };

@@ -9,6 +9,7 @@ app.use(bodyParser.json());
 app.use('/user', router.user);
 app.use('/login', router.login);
 app.use('/categories', router.categories);
+app.use('/post', router.post);
 
 app.use(middlewares.joiError);
 app.use(middlewares.domainError);

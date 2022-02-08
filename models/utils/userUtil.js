@@ -17,6 +17,11 @@ const isUniqueEmail = async (email) => {
   return !!user;
 };
 
+const getUserByEmail = async (email) => {
+  const user = await User.findOne({ where: { email } });
+  return user && user.dataValues;
+};
+
 const createUser = async (user) => {
   const newUser = await User.create(user);
   const token = await generateToken(newUser);
@@ -28,4 +33,5 @@ module.exports = {
   getAllClear,
   getByIdClear,
   isUniqueEmail,
+  getUserByEmail,
 };
