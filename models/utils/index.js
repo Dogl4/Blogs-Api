@@ -1,11 +1,11 @@
-const loginUtil = require('./loginUtil');
-const userUtil = require('./userUtil');
 const categorieUtil = require('./categorieUtil');
+const loginUtil = require('./loginUtil');
 const generateToken = require('./jwt');
+const userUtil = require('./userUtil');
 
 module.exports = {
-  loginUtil,
-  userUtil,
   categorieUtil,
+  loginUtil,
   generateToken,
+  userUtil,
 };

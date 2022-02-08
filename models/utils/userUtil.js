@@ -24,8 +24,8 @@ const createUser = async (user) => {
 };
 
 module.exports = {
-  getAllClear,
-  isUniqueEmail,
   createUser,
+  getAllClear,
   getByIdClear,
+  isUniqueEmail,
 };
