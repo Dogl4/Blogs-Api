@@ -7,6 +7,11 @@ const getAllClear = async () => {
   return dataUsers;
 };
 
+const getByIdClear = async (id) => {
+  const user = await User.findOne({ where: { id } });
+  return user && user.dataValues;
+};
+
 const isUniqueEmail = async (email) => {
   const user = await User.findOne({ where: { email } });
   return !!user;
@@ -22,4 +27,5 @@ module.exports = {
   getAllClear,
   isUniqueEmail,
   createUser,
+  getByIdClear,
 };

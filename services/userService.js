@@ -3,6 +3,12 @@ const { generateError } = require('../middlewares');
 
 const getAll = () => userUtil.getAllClear();
 
+const getById = async (id) => {
+  const userById = await userUtil.getByIdClear(id);
+  if (!userById) generateError('NotFound', 'User does not exist');
+  return userById;
+};
+
 const isUniqueEmail = async (email) => {
   const isUnique = await userUtil.isUniqueEmail(email);
   if (isUnique) generateError('Conflict', 'User already registered');
@@ -14,4 +20,5 @@ module.exports = {
   getAll,
   isUniqueEmail,
   createUser,
+  getById,
 };
