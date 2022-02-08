@@ -8,7 +8,10 @@ const isUniqueCategorie = async (categorie) => {
 
 const createCategorie = ({ name }) => (categorieUtil.createCategorie({ name }));
 
+const getCategories = () => categorieUtil.getCategories();
+
 module.exports = {
   isUniqueCategorie,
   createCategorie,
+  getCategories,
 };

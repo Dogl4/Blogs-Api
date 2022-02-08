@@ -10,6 +10,13 @@ const registerCategorie = async (req, res, _next) => {
   res.status(201).json(newCategorie);
 };
 
+const getCategories = async (_req, res, _next) => {
+  const categories = await categorieService.getCategories();
+
+  res.status(200).json(categories);
+};
+
 module.exports = {
   registerCategorie,
+  getCategories,
 };
