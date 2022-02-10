@@ -9,6 +9,12 @@ const registerPost = async (req, res, _next) => {
   res.status(201).json(newPost);
 };
 
+const getAllPosts = async (req, res, _next) => {
+  const allPosts = await postService.getAllPosts();
+  res.status(200).json(allPosts);
+};
+
 module.exports = {
   registerPost,
+  getAllPosts,
 };

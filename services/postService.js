@@ -20,7 +20,13 @@ const createPost = async ({ user, body }) => {
   return newPost;
 };
 
+const getAllPosts = async () => {
+  const allPosts = await postUtil.getAllPostsClean();
+  return allPosts;
+};
+
 module.exports = {
   existsCategorie,
   createPost,
+  getAllPosts,
 };

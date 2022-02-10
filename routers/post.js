@@ -4,5 +4,6 @@ const { postController } = require('../controllers');
 const { authJwt } = require('../middlewares');
 
 router.post('/', authJwt, rescue(postController.registerPost));
+router.get('/', authJwt, rescue(postController.getAllPosts));
 
 module.exports = router;
