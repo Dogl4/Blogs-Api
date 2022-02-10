@@ -1,8 +1,8 @@
-const { postUtil, categorieUtil, userUtil } = require('../models/utils');
+const { postUtil, categoryUtil, userUtil } = require('../models/utils');
 const { generateError } = require('../middlewares');
 
 const existsCategorie = async (categorieId) => {
-  const exists = await categorieUtil.existsCategorieId(categorieId);
+  const exists = await categoryUtil.existsCategoryId(categorieId);
   if (!exists) generateError('BadRequest', '"categoryIds" not found');
 };
 
