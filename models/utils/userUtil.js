@@ -28,10 +28,16 @@ const createUser = async (user) => {
   return token;
 };
 
+const deleteUserById = async ({ user }) => {
+  const { id } = await getUserByEmail(user);
+  await User.destroy({ where: { id } });
+};
+
 module.exports = {
   createUser,
   getAllClear,
   getByIdClear,
   isUniqueEmail,
   getUserByEmail,
+  deleteUserById,
 };

@@ -16,9 +16,14 @@ const isUniqueEmail = async (email) => {
 
 const createUser = (user) => (userUtil.createUser(user));
 
+const deleteUserById = async (user) => {
+  await userUtil.deleteUserById(user);
+};
+
 module.exports = {
   getAll,
   isUniqueEmail,
   createUser,
   getById,
+  deleteUserById,
 };
