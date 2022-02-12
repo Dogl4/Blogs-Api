@@ -1,4 +1,5 @@
 const { BlogPost, PostsCategory, Category, User } = require('..');
+const { generateError } = require('../../middlewares');
 
 const createPost = async (post) => {
   const newPost = await BlogPost.create(post);
@@ -23,7 +24,18 @@ const getAllPostsClean = async () => {
   return allPosts;
 };
 
+const getPostByIdClean = async (id) => {
+  const post = await BlogPost.findOne({ where: { id }, raw: true });
+  if (!post) generateError('NotFound', 'Post does not exist');
+  const categories = await PostsCategory.findAll({ where: { postId: id }, raw: true });
+  const category = await Category.findOne({ where: { id: categories[0].categoryId }, raw: true });
+  const user = await User.findOne({ where: { id: post.userId }, raw: true });
+
+  return ({ ...post, user, categories: [category] });
+};
+
 module.exports = {
   createPost,
   getAllPostsClean,
+  getPostByIdClean,
 };

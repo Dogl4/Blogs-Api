@@ -25,8 +25,14 @@ const getAllPosts = async () => {
   return allPosts;
 };
 
+const getPostById = async (id) => {
+  const postById = await postUtil.getPostByIdClean(id);
+  return postById;
+};
+
 module.exports = {
   existsCategorie,
   createPost,
   getAllPosts,
+  getPostById,
 };
