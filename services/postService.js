@@ -38,10 +38,18 @@ const editPostById = async ({ id, user, body: { title, content } }) => {
   return { title, content, userId: userDb.id, categories };
 };
 
+const deletePostById = async (params) => {
+  console.log(params);
+  const { id, user } = params;
+  const userDb = await userUtil.getUserByEmail(user);
+  await postUtil.deletePostById({ id, userId: userDb.id });
+};
+
 module.exports = {
   existsCategorie,
   createPost,
   getAllPosts,
   getPostById,
   editPostById,
+  deletePostById,
 };

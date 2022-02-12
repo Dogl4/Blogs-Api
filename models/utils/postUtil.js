@@ -52,9 +52,18 @@ const editPostById = async ({ id, editPost }) => {
   await BlogPost.update(objectPost, { where: { id } });
 };
 
+const deletePostById = async ({ id, userId }) => {
+  const postById = await BlogPost.findOne({ where: { id }, raw: true });
+  if (!postById) generateError('NotFound', 'Post does not exist');
+  if (userId !== postById.userId) generateError('Unauthorized', 'Unauthorized user');
+
+  await BlogPost.destroy({ where: { id } });
+};
+
 module.exports = {
   createPost,
   getAllPostsClean,
   getPostByIdClean,
   editPostById,
+  deletePostById,
 };
