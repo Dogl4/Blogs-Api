@@ -19,7 +19,7 @@ const isUniqueEmail = async (email) => {
 
 const getUserByEmail = async (email) => {
   const user = await User.findOne({ where: { email } });
-  return user && user.dataValues;
+  return user ? user.dataValues : null;
 };
 
 const createUser = async (user) => {

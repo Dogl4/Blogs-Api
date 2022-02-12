@@ -14,7 +14,7 @@ const createPost = async ({ user, body }) => {
   }));
   const hour = `${new Date()} 0000`;
   const objectPost = { userId: userDb.id, title, content, published: hour, updated: hour };
-  const newPost = await postUtil.createPost(objectPost);
+  const newPost = await postUtil.createPost(categoryIds, objectPost);
   delete newPost.published;
   delete newPost.updated;
   return newPost;
@@ -30,9 +30,18 @@ const getPostById = async (id) => {
   return postById;
 };
 
+const editPostById = async ({ user/* , body */ }) => {
+  const userDb = await userUtil.getUserByEmail(user);
+  if (!userDb) generateError('Unauthorized', 'Unauthorized user');
+  
+  // const { title, content } = body;
+  // const postById = await postUtil.getPostByIdClean(id);
+};
+
 module.exports = {
   existsCategorie,
   createPost,
   getAllPosts,
   getPostById,
+  editPostById,
 };

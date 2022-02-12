@@ -6,5 +6,6 @@ const { authJwt } = require('../middlewares');
 router.post('/', authJwt, rescue(postController.registerPost));
 router.get('/', authJwt, rescue(postController.getAllPosts));
 router.get('/:id', authJwt, rescue(postController.getPostById));
+router.put('/:id', authJwt, rescue(postController.editPostById));
 
 module.exports = router;

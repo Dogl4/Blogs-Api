@@ -1,5 +1,5 @@
 const { postService } = require('../services');
-const { post } = require('../schemas');
+const { post, editPost } = require('../schemas');
 
 const registerPost = async (req, res, _next) => {
   const { error } = post.validate(req.body);
@@ -20,8 +20,18 @@ const getPostById = async (req, res, _next) => {
   res.status(200).json(postById);
 };
 
+const editPostById = async (req, res, _next) => {
+  // const { id } = req.params;
+  editPost(req.body);
+
+  // const editedPost = await postService.editPostById(id, req);
+  // res.status(200).json(editedPost);
+  res.status(200).json({ message: 'Calma que vai funcionar editPosById' });
+};
+
 module.exports = {
   registerPost,
   getAllPosts,
   getPostById,
+  editPostById,
 };
