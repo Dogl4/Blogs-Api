@@ -33,10 +33,17 @@ const deletePostById = async (req, res, _next) => {
   res.status(204).end();
 };
 
+const findPostByTitle = async (req, res, _next) => {
+  const { q } = req.query;
+  const postsByTitle = await postService.findPostByTitle({ title: q });
+  res.status(200).json(postsByTitle);
+};
+
 module.exports = {
   registerPost,
   getAllPosts,
   getPostById,
   editPostById,
   deletePostById,
+  findPostByTitle,
 };

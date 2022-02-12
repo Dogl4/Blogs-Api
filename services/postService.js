@@ -45,6 +45,11 @@ const deletePostById = async (params) => {
   await postUtil.deletePostById({ id, userId: userDb.id });
 };
 
+const findPostByTitle = async ({ title }) => {
+  const postsByTitle = await postUtil.findPostByTitle(title);
+  return postsByTitle;
+};
+
 module.exports = {
   existsCategorie,
   createPost,
@@ -52,4 +57,5 @@ module.exports = {
   getPostById,
   editPostById,
   deletePostById,
+  findPostByTitle,
 };

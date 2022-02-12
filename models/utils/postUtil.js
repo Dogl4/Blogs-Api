@@ -1,5 +1,12 @@
+const { Op } = require('sequelize');
 const { BlogPost, PostsCategory, Category, User } = require('..');
 const { generateError } = require('../../middlewares');
+
+const handleDataValue = (array) => array.map(({ dataValues }) => ({
+    ...dataValues,
+    user: dataValues.user.dataValues,
+    categories: (dataValues.categories.map(({ id, name }) => ({ id, name }))),
+  }));
 
 const createPost = async (categoryIds, post) => {
   const newPost = await BlogPost.create(post);
@@ -11,18 +18,10 @@ const createPost = async (categoryIds, post) => {
 
 const getAllPostsClean = async () => {
   const allBlogPost = await BlogPost.findAll({ 
-    include: [
-      { as: 'user', model: User, attributes: { exclude: ['password'] } },
-      { as: 'categories', model: Category },
-    ],
+    include: [{ as: 'user', model: User, attributes: { exclude: ['password'] } },
+      { as: 'categories', model: Category }],
   });
-
-  const newAllPost = allBlogPost.map(({ dataValues }) => ({
-    ...dataValues,
-    user: dataValues.user.dataValues,
-    categories: (dataValues.categories.map(({ id, name }) => ({ id, name }))),
-  }));
-  return newAllPost;
+  return handleDataValue(allBlogPost);
 };
 
 const getPostByIdClean = async (id) => {
@@ -60,10 +59,26 @@ const deletePostById = async ({ id, userId }) => {
   await BlogPost.destroy({ where: { id } });
 };
 
+const findPostByTitle = async (title) => {
+  // <Referêcnias: https://pt.stackoverflow.com/questions/355872/como-utilizar-o-like-do-sql-no-sequelize>
+  const postsByTitle = await BlogPost.findAll({ 
+    where: {
+      // <Referência: https://sequelize.org/v5/variable/index.html#static-variable-Op>
+      [Op.or]: [{ title: { [Op.like]: `%${title}%` } }, { content: { [Op.like]: `%${title}%` } }], 
+    },
+    include: [
+      { as: 'user', model: User, attributes: { exclude: ['password'] } },
+      { as: 'categories', model: Category },
+    ],
+  });
+  return handleDataValue(postsByTitle);
+};
+
 module.exports = {
   createPost,
   getAllPostsClean,
   getPostByIdClean,
   editPostById,
   deletePostById,
+  findPostByTitle,
 };
