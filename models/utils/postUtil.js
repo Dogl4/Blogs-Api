@@ -28,11 +28,20 @@ const getAllPostsClean = async () => {
 const getPostByIdClean = async (id) => {
   const post = await BlogPost.findOne({ where: { id }, raw: true });
   if (!post) generateError('NotFound', 'Post does not exist');
-  const categories = await PostsCategory.findAll({ where: { postId: id }, raw: true });
-  const category = await Category.findOne({ where: { id: categories[0].categoryId }, raw: true });
-  const user = await User.findOne({ where: { id: post.userId }, raw: true });
 
-  return ({ ...post, user, categories: [category] });
+   const getPost = await BlogPost.findOne({
+    where: { id },
+    include: [
+      { as: 'user', model: User, attributes: { exclude: ['password'] } },
+      { as: 'categories', model: Category },
+    ] });
+
+    const newGetPost = {
+      ...getPost.dataValues,
+      user: getPost.dataValues.user.dataValues,
+      categories: (getPost.dataValues.categories.map((e) => ({ id: e.id, name: e.name }))),
+    };
+  return newGetPost;
 };
 
 module.exports = {
