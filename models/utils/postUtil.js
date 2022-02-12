@@ -44,8 +44,17 @@ const getPostByIdClean = async (id) => {
   return newGetPost;
 };
 
+const editPostById = async ({ id, editPost }) => {
+  const postById = await BlogPost.findOne({ where: { id }, raw: true });
+  if (editPost.userId !== postById.userId) generateError('Unauthorized', 'Unauthorized user');
+  const hour = `${new Date()} 0000`;
+  const objectPost = { ...editPost, updated: hour };
+  await BlogPost.update(objectPost, { where: { id } });
+};
+
 module.exports = {
   createPost,
   getAllPostsClean,
   getPostByIdClean,
+  editPostById,
 };

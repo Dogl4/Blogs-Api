@@ -30,12 +30,12 @@ const getPostById = async (id) => {
   return postById;
 };
 
-const editPostById = async ({ user/* , body */ }) => {
+const editPostById = async ({ id, user, body: { title, content } }) => {
   const userDb = await userUtil.getUserByEmail(user);
-  if (!userDb) generateError('Unauthorized', 'Unauthorized user');
-  
-  // const { title, content } = body;
-  // const postById = await postUtil.getPostByIdClean(id);
+  const { categories } = await postUtil.getPostByIdClean(id);
+  const editPost = { userId: userDb.id, title, content };
+  await postUtil.editPostById({ id, editPost });
+  return { title, content, userId: userDb.id, categories };
 };
 
 module.exports = {

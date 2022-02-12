@@ -20,13 +20,11 @@ const getPostById = async (req, res, _next) => {
   res.status(200).json(postById);
 };
 
-const editPostById = async (req, res, _next) => {
-  // const { id } = req.params;
-  editPost(req.body);
-
-  // const editedPost = await postService.editPostById(id, req);
-  // res.status(200).json(editedPost);
-  res.status(200).json({ message: 'Calma que vai funcionar editPosById' });
+const editPostById = async ({ user, body, params }, res, _next) => {
+  const { id } = params;
+  editPost(body);
+  const editedPost = await postService.editPostById({ id: +id, user, body });
+  res.status(200).json(editedPost);
 };
 
 module.exports = {
