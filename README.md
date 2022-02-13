@@ -12,19 +12,19 @@ Este projeto trata-se de uma arquitetura de *API* com sistema **CRUD** (POST, GE
 
 ## Requerimentos para rodar localmente
 
-- Necessita dos seguintes programas para rodar no ambiente
+**Necessita dos seguintes programas para rodar no ambiente**
 
->  -  [Node.js](https://nodejs.org/en/download/)
+> [Node.js](https://nodejs.org/en/download/)
 
->  - MySQL Server, configurado com usuário, [versões suportadas](https://www.mysql.com/support/supportedplatforms/database.html), [doc de como instalar](https://dev.mysql.com/doc/refman/8.0/en/installing.html).
+> MySQL Server, configurado com usuário, [versões suportadas](https://www.mysql.com/support/supportedplatforms/database.html), [doc de como instalar](https://dev.mysql.com/doc/refman/8.0/en/installing.html).
 
->  - Para requisição de API, teste, recomedo um destes: [Thunder Client](https://www.thunderclient.com/) ou [Postman](https://www.postman.com/) ou [Insomnia](https://insomnia.rest/).
+> Para requisição de API, teste, recomedo um destes: [Thunder Client](https://www.thunderclient.com/) ou [Postman](https://www.postman.com/) ou [Insomnia](https://insomnia.rest/).
 
 
 
 ## Instalando Dependências
 
-- Para baixar o node_modules:
+**Para baixar o node_modules:**
 
 ```bash
 
@@ -32,18 +32,23 @@ Este projeto trata-se de uma arquitetura de *API* com sistema **CRUD** (POST, GE
 
 ```
 
-- Variáveis a serem configuradas. Crie um arquivo na raiz do projeto: `.env`, adicione este ao  `.gitignore` e preencha com suas variáveis:
-> - `MYSQL_USER=<seuUsuarioSqlServe>`
->- `MYSQL_PASSWORD=<suaSenha>`
->- `HOSTNAME=<localhost>`
->- `PORT=<3000>`
->- `JWT_SECRET=<inventeUmaSenhaParaValidarSeuToken>`
+**Variáveis a serem configuradas. Crie um arquivo na raiz do projeto: `.env`, adicione este ao  `.gitignore` e preencha com suas variáveis:**
+
+> `MYSQL_USER=<seuUsuarioSqlServe>`
+
+> `MYSQL_PASSWORD=<suaSenha>`
+
+> `HOSTNAME=<localhost>`
+
+> `PORT=<3000>`
+
+> `JWT_SECRET=<inventeUmaSenhaParaValidarSeuToken>`
 
 
 
 ## Executando aplicação
 
-- Para iniciar o server:
+**Para iniciar o server:**
 
 ```bash
 ~$ npx nodemon index.js
@@ -57,38 +62,28 @@ Este projeto trata-se de uma arquitetura de *API* com sistema **CRUD** (POST, GE
 
 ```
 
-## Endpoints, rotas
+## Endpoints | rotas
 
-**`/user`**
->  POST e GET
+POST e GET |**`/user`**
 
-**`/user/id`**
-> GET
+GET | **`/user/id`**
 
-**`/login`**
-> POST
+POST | **`/login`**
 
-**`/categories`**
-> POST e GET
+POST e GET | **`/categories`**
 
-**`/post`**
-> POST e GET
+POST e GET | **`/post`**
 
-**`/post:id`**
-> GET e DELETE
+GET e DELETE | **`/post:id`**
 
-**`/user/me`**
-> DELETE
+DELETE | **`/user/me`**
 
-**`/post/search?q=`**
-> GET
+GET | **`/post/search?q=`**
+
 
 ## Desenvolvido por:
 
-**Código:**
-Pedro D. P. Barreto.
-
+>Pedro D. P. Barreto. 
 Contato:([Linkedin](https://www.linkedin.com/in/dogl4/), [Portifólio](https://dogla.com.br), [Github](https://github.com/Dogl4))
 
-**Ideia:** Trybe
-Contato:([Linkedin](https://www.linkedin.com/school/betrybe/), [Site](https://www.betrybe.com/), [Github](https://github.com/betrybe))
+> Trybe. Contato:([Linkedin](https://www.linkedin.com/school/betrybe/), [Site](https://www.betrybe.com/), [Github](https://github.com/betrybe))
