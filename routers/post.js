@@ -1,5 +1,5 @@
-const rescue = require('express-rescue');
 const router = require('express').Router();
+const rescue = require('express-rescue');
 const { postController } = require('../controllers');
 const { authJwt } = require('../middlewares');
 
