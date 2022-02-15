@@ -53,7 +53,7 @@ Este projeto trata-se de uma arquitetura de *API* com sistema **CRUD** (POST, GE
 ```bash
 ~$ npx nodemon index.js
 ```
-- Para criar o bando:
+- Para criar o banco de dados:
 
 ```bash
 ~$ npx sequelize db:create
