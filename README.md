@@ -1,5 +1,7 @@
 # Project Blogs API 
 
+<img src="blogApi.gif" alt="Gif de uma pequena parte deste projeto rodando">
+
 ## Contexto
 
 Este projeto trata-se de uma arquitetura de *API* com sistema **CRUD** (POST, GET, PUT e DELETE) utilizando a arquitetura **REST**(Representational State Transfer). Ela consiste em vários **endpoints** que estarão conectados com o banco de dados. Principais bibliotecas utilizadas neste projeto: o Sequelize CLI para criar e gerenciar tabelas pela linha de comando do terminal, o Express para gerenciamento de rota e junto com o express-rescue junto com o Joi tratar erros e resposta nas requisições e entradas de dados.
