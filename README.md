@@ -1,91 +1,90 @@
-# Project Blogs API 
+# Projeto Blogs API
 
-<img src="blogApi.gif" alt="Gif de uma pequena parte deste projeto rodando">
+  ## 📷 Screenshot
+![Screenshot](./blogApi.gif)  
 
-## Contexto
+## 📋 Descrição do projeto
 
-Este projeto trata-se de uma arquitetura de *API* com sistema **CRUD** (POST, GET, PUT e DELETE) utilizando a arquitetura **REST**(Representational State Transfer). Ela consiste em vários **endpoints** que estarão conectados com o banco de dados. Principais bibliotecas utilizadas neste projeto: o Sequelize CLI para criar e gerenciar tabelas pela linha de comando do terminal, o Express para gerenciamento de rota e junto com o express-rescue junto com o Joi tratar erros e resposta nas requisições e entradas de dados.
+Uma API para um blog com endpoits que produzem conteúdo e gerenciam o banco de dados. 
 
-### Técnologias usadas
+Este projeto trata-se de uma arquitetura de *API* com sistema **CRUD** (POST, GET, PUT e DELETE) utilizando a arquitetura **REST**(Representational State Transfer).  Além de usar Joi para tratar os erros e resposta nas requisições e entradas de dados.
 
-**Back-end:**
+## 💻 Tecnologias utilizadas
 
->  **Desenvolvido usando:** NodeJS, ExpressJS, MYSQL, ES6, Sequilize, Joi, JWT e Dotenv.
+- NodeJS
+- ExpressJS
+- MYSQL
+- JavaScript (ES6)
+- Sequilize (ORM)
+- Joi (tratamento de dados inseridos)
+- JWT
+- Dotenv
 
-## Requerimentos para rodar localmente
+##  :inbox_tray: Para rodar este projeto localmente
 
-**Necessita dos seguintes programas para rodar no ambiente**
-
-> [Node.js](https://nodejs.org/en/download/)
-
-> MySQL Server, configurado com usuário, [versões suportadas](https://www.mysql.com/support/supportedplatforms/database.html), [doc de como instalar](https://dev.mysql.com/doc/refman/8.0/en/installing.html).
-
-> Para requisição de API, teste, recomedo um destes: [Thunder Client](https://www.thunderclient.com/) ou [Postman](https://www.postman.com/) ou [Insomnia](https://insomnia.rest/).
-
-
-
-## Instalando Dependências
-
-**Para baixar o node_modules:**
-
-```bash
-
-~$ npm install
-
-```
-
-**Variáveis a serem configuradas. Crie um arquivo na raiz do projeto: `.env`, adicione este ao  `.gitignore` e preencha com suas variáveis:**
-
-> `MYSQL_USER=<seuUsuarioSqlServe>`
-
-> `MYSQL_PASSWORD=<suaSenha>`
-
-> `HOSTNAME=<localhost>`
-
-> `PORT=<3000>`
-
-> `JWT_SECRET=<inventeUmaSenhaParaValidarSeuToken>`
-
-
-
-## Executando aplicação
-
-**Para iniciar o server:**
-
+1. Tenha node, MySQL Server e o Git instalados e configurados em sua máquina.
+2.  Para baixar este projeto via git rode no terminal: `git clone git@github.com:Dogl4/Blogs-Api.git` 
+3. Vá para a pasta raiz do projeto, rode: `npm install`. Cópie o conteúdo do arquivo: `Trybesmith.sql`, crie o banco com workbench.
+4. Cria um arquivo na raiz do projeto para as variáveis de ambiente, `.env`(MYSQL_USER, MYSQL_PASSWORD, HOSTNAME, PORT, JWT_SECRET).
+5. No terminal rode `npm run dev`
+6. Para iniciar o server e criar o banco de dados, rode os comandos: 
 ```bash
 ~$ npx nodemon index.js
 ```
-- Para criar o banco de dados:
-
 ```bash
 ~$ npx sequelize db:create
 
 ~$ npx sequelize db:migrate
-
 ```
+7.  Use algum dos seguintes programas para fazer a requisição:  [Thunder Client](https://www.thunderclient.com/) ou [Postman](https://www.postman.com/) ou [Insomnia](https://insomnia.rest/).
+8. Faça a requisição para os endpoints abaixo.
 
-## Endpoints | rotas
+## :balloon: Endpoints
+- POST - `/user`
+- GET - `/user`
+- GET - `/user/id`
+- POST - `/login`
+- GET - `/categories`
+- POST - `/categories`
+- POST - `/post`
+- GET - `/post`
+- GET - `/post:id`
+- DELETE - `/post:id`
+- DELETE - `/user/me`
+- GET - `/post/search?q=`
 
-POST e GET |**`/user`**
+## 📈 Status do projeto
 
-GET | **`/user/id`**
+✅ Concluído
 
-POST | **`/login`**
+## :busts_in_silhouette: Colaboradores
 
-POST e GET | **`/categories`**
+Estas pessoas participaram deste projeto:
 
-POST e GET | **`/post`**
-
-GET e DELETE | **`/post:id`**
-
-DELETE | **`/user/me`**
-
-GET | **`/post/search?q=`**
-
-
-## Desenvolvido por:
-
->Pedro D. P. Barreto. 
-Contato:([Linkedin](https://www.linkedin.com/in/dogl4/), [Portifólio](https://dogla.com.br), [Github](https://github.com/Dogl4))
-
-> Trybe. Contato:([Linkedin](https://www.linkedin.com/school/betrybe/), [Site](https://www.betrybe.com/), [Github](https://github.com/betrybe))
+<table>
+  <tr  style="width:120px">
+    <td align="center">
+      <a target=”_blank” href="https://github.com/Dogl4">
+        <img src="https://avatars.githubusercontent.com/u/85720722?s=400&u=c260de98c1eee20df67d72857c3bcc8682fed68a&v=4" width="100px;" alt="Foto do Pedro Barreto no GitHub"/><br>
+        <sub>
+          <b>Pedro Barreto</b>
+        </sub>
+      </a>
+    </td>
+    <td align="center">
+      <a target=”_blank” href="https://github.com/betrybe">
+        <img src="https://avatars.githubusercontent.com/u/55410300?s=200&v=4" width="100px;" alt="Foto Trybe"/><br>
+        <sub>
+          <b>Trybe</b>
+        </sub>
+      </a>
+    </td>
+  </tr>
+  <td width="120px;">
+    Desenvolvimento do código da api, requisições, validações.
+  </td>
+  <td width="120px;">
+    Ideia e banco.
+  </td>
+  </th>
+</table>
