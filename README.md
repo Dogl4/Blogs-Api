@@ -28,7 +28,7 @@ API para um blog. Desenvolvida em [Node.js](https://nodejs.org/en/), com [JavaSc
 ## 📥 Rodando API localmente
 
 ### Pré-requisitos
-> - Ter o [NodeJS](https://nodejs.org/en/) e o [MySQL](https://www.mysql.com/) instalados.
+> Ter o [NodeJS](https://nodejs.org/en/) e o [MySQL](https://www.mysql.com/) instalados.
 
 ### Baixando o repositório
 
@@ -44,7 +44,9 @@ $ npm install
 ```
 
 ### Definindo váriaveis de ambiente
-> Renomei o arquivo `.env.example` para `.env`, substituindo os valores por seus respectivos dados locais.
+```bash
+# Renomei o arquivo `.env.example` para `.env`, substituindo os valores por seus respectivos dados locais.
+```
 
 ### Criando o banco de dados
 
@@ -56,9 +58,9 @@ $ npx sequelize-cli db:create && npx sequelize-cli db:migrate
 $ npx sequelize-cli db:seed:all 
 ```
 
-> - Use algum dos seguintes programas para fazer a requisição:  [Thunder Client](https://www.thunderclient.com/) ou [Postman](https://www.postman.com/) ou [Insomnia](https://insomnia.rest/).
-
 ## 🎈 Endpoints
+
+> Use algum dos seguintes programas para fazer as requisições:  [Thunder Client](https://www.thunderclient.com/) ou [Postman](https://www.postman.com/) ou [Insomnia](https://insomnia.rest/).
 
 ### Usuários
 
@@ -71,23 +73,31 @@ $ npx sequelize-cli db:seed:all
      - Exemplo: `http://localhost:3000/user`
   - Request:
     - Body:
-        ```json
+      ```json
         {
             "email": "doougllas@hotmail.com.br",
             "password": "123456"
         }
-        ```
+      ```
 
   - Response sucesso:
       - Status: `201 Created`
       - Body:
-      ```json
-      {
-          "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc0FkbWluIjpmYWxzZSwidXNlckVtYWlsIjoiYWFhQGFhYS5jbyIsImlhdCI6MTY1OTM1NjE1NywiZXhwIjoxNjU5NDQyNTU3LCJzdWIiOiJhYWFAYWFhLmNvIn0.y3TmHszGD1XvS-PatCJ1zofM8ZLG4YnGm5UantcP2Ak"
-      }
-      ```
+        ```json
+        {
+            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc0FkbWluIjpmYWxzZSwidXNlckVtYWlsIjoiYWFhQGFhYS5jbyIsImlhdCI6MTY1OTM1NjE1NywiZXhwIjoxNjU5NDQyNTU3LCJzdWIiOiJhYWFAYWFhLmNvIn0.y3TmHszGD1XvS-PatCJ1zofM8ZLG4YnGm5UantcP2Ak"
+        }
+        ```
 
   - Response erro:
+      - Status: `409 Conflict`
+      - Body: 
+        ```json
+        {
+            "message": "User already registered"
+        }
+        ```
+
     - Status: `400 Bad Request`
     - Body:
       ```json
@@ -120,7 +130,6 @@ $ npx sequelize-cli db:seed:all
 ---
 
 > Modificando(antigo)...
-- POST - `/user`
 - GET - `/user`
 - GET - `/user/id`
 - POST - `/login`
