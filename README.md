@@ -1,45 +1,125 @@
 # Projeto Blogs API
 
-  ## 📷 Screenshot
-![Screenshot](./blogApi.gif)  
+## 📋 Descrição
 
-## 📋 Descrição do projeto
+API para um blog. Desenvolvida em [Node.js](https://nodejs.org/en/), com [JavaScript](https://www.javascript.com/learn/strings), [Express.js](https://expressjs.com/en/api.html) para ligar com rotas, [Sequelize](https://sequelize.org/)(ORM) para criar e gerenciar um banco de dados, [MySQL](https://www.mysql.com/), [JWT](https://jwt.io/) para autenticação e [Joi](https://www.npmjs.com/package/joi) para validação de dados. Com sistema **CRUD** (POST, GET, PUT e DELETE) utilizando a arquitetura **API-REST**(Representational State Transfer).
 
-Uma API para um blog com endpoits que produzem conteúdo e gerenciam o banco de dados. 
+<details>
+  <summary>📷 <strong>Screenshot</strong></summary><br />
 
-Este projeto trata-se de uma arquitetura de *API* com sistema **CRUD** (POST, GET, PUT e DELETE) utilizando a arquitetura **REST**(Representational State Transfer).  Além de usar Joi para tratar os erros e resposta nas requisições e entradas de dados.
+| [<img alt="Screenshot da API" height="400" width="auto" src="./blogApi.gif">](./blogApi.gif "Screenshot da API") |
+|------------------------------------------------------------------------------------------------------------------|
+| _1.1-api-gif_                                                                                                    |
+</details>
 
-## 💻 Tecnologias utilizadas
+<details>
+  <summary>💻 <strong>Tecnologias utilizadas</strong></summary><br />
 
-- NodeJS
-- ExpressJS
-- MYSQL
-- JavaScript (ES6)
-- Sequilize (ORM)
-- Joi (tratamento de dados inseridos)
-- JWT
-- Dotenv
+- [JavaScript](https://www.javascript.com/learn/strings): Linguagem de programação.
+- [NodeJS](https://nodejs.org/en/): Motor de JavaScript para criação de aplicações web.
+- [ExpressJS](https://expressjs.com/): Framework para desenvolvimento da API.
+- [MYSQL](https://www.mysql.com/): Banco de dados.
+- [Sequilize](https://sequelize.org/): ORM para o MYSQL.
+- [Joi](https://www.npmjs.com/package/joi): Validação de dados.
+- [JWT](https://www.npmjs.com/package/jsonwebtoken): Autenticação.
+- [Dotenv](https://www.npmjs.com/package/dotenv): Carregamento de variáveis de ambiente.
+</details>
 
-##  :inbox_tray: Para rodar este projeto localmente
+## 📥 Rodando API localmente
 
-1. Tenha node, MySQL Server e o Git instalados e configurados em sua máquina.
-2.  Para baixar este projeto via git rode no terminal: `git clone git@github.com:Dogl4/Blogs-Api.git` 
-3. Vá para a pasta raiz do projeto, rode: `npm install`. Cópie o conteúdo do arquivo: `Trybesmith.sql`, crie o banco com workbench.
-4. Cria um arquivo na raiz do projeto para as variáveis de ambiente, `.env`(MYSQL_USER, MYSQL_PASSWORD, HOSTNAME, PORT, JWT_SECRET).
-5. No terminal rode `npm run dev`
-6. Para iniciar o server e criar o banco de dados, rode os comandos: 
+### Pré-requisitos
+> - Ter o [NodeJS](https://nodejs.org/en/) e o [MySQL](https://www.mysql.com/) instalados.
+
+### Baixando o repositório
+
 ```bash
-~$ npx nodemon index.js
+# clonando o repositório ou baixe por zip(ali em cima)
+$ git clone git@github.com:Dogl4/Blogs-Api.git
+
+# entrando na pasta do repositório
+$ cd Blogs-Api
+
+# instalando dependências
+$ npm install
 ```
+
+### Definindo váriaveis de ambiente
+> Renomei o arquivo `.env.example` para `.env`, substituindo os valores por seus respectivos dados locais.
+
+### Criando o banco de dados
+
 ```bash
-~$ npx sequelize db:create
+# criando o banco de dados
+$ npx sequelize-cli db:create && npx sequelize-cli db:migrate
 
-~$ npx sequelize db:migrate
+# populando o banco, executando as seeds
+$ npx sequelize-cli db:seed:all 
 ```
-7.  Use algum dos seguintes programas para fazer a requisição:  [Thunder Client](https://www.thunderclient.com/) ou [Postman](https://www.postman.com/) ou [Insomnia](https://insomnia.rest/).
-8. Faça a requisição para os endpoints abaixo.
 
-## :balloon: Endpoints
+> - Use algum dos seguintes programas para fazer a requisição:  [Thunder Client](https://www.thunderclient.com/) ou [Postman](https://www.postman.com/) ou [Insomnia](https://insomnia.rest/).
+
+## 🎈 Endpoints
+
+### Usuários
+
+> Modificando(novo)...
+- <details>
+      <summary>POST (cadastra)</summary>
+
+  - Url:
+     - `/user`
+     - Exemplo: `http://localhost:3000/user`
+  - Request:
+    - Body:
+        ```json
+        {
+            "email": "doougllas@hotmail.com.br",
+            "password": "123456"
+        }
+        ```
+
+  - Response sucesso:
+      - Status: `201 Created`
+      - Body:
+      ```json
+      {
+          "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc0FkbWluIjpmYWxzZSwidXNlckVtYWlsIjoiYWFhQGFhYS5jbyIsImlhdCI6MTY1OTM1NjE1NywiZXhwIjoxNjU5NDQyNTU3LCJzdWIiOiJhYWFAYWFhLmNvIn0.y3TmHszGD1XvS-PatCJ1zofM8ZLG4YnGm5UantcP2Ak"
+      }
+      ```
+
+  - Response erro:
+    - Status: `400 Bad Request`
+    - Body:
+      ```json
+      {
+          "message": "\"email\" is required"
+      }
+      ```
+      ```json
+      {
+          "message": "\"email\" is not allowed to be empty"
+      }
+      ```
+      ```json
+      {
+          "message": "\"password\" is required"
+      }
+      ```
+      ```json
+      {
+          "message": "\"password\" is not allowed to be empty"
+      }
+      ```
+      ```json
+      {
+          "message": "\"password\" length must be 6 characters long"
+      }
+      ```
+</details>
+
+---
+
+> Modificando(antigo)...
 - POST - `/user`
 - GET - `/user`
 - GET - `/user/id`
@@ -55,9 +135,11 @@ Este projeto trata-se de uma arquitetura de *API* com sistema **CRUD** (POST, GE
 
 ## 📈 Status do projeto
 
-✅ Concluído
+<!-- ✅ Concluído  -->
+🚧 Em desenvolvimento
+> Estou melhorando a documentação.
 
-## :busts_in_silhouette: Colaboradores
+## 👥 Colaboradores
 
 Estas pessoas participaram deste projeto:
 
