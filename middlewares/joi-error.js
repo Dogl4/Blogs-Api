@@ -4,6 +4,9 @@ const mapErro = {
   'string.email': 400,
   'string.min': 400,
   'string.empty': 400,
+  'array.base': 400,
+  'array.includesRequiredUnknowns': 400,
+  'number.base': 400
 };
 
 module.exports = (err, _req, res, next) => {

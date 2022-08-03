@@ -3,12 +3,13 @@ const { generateError } = require('../middlewares');
 
 const existsCategorie = async (categorieId) => {
   const exists = await categoryUtil.existsCategoryId(categorieId);
-  if (!exists) generateError('BadRequest', '"categoryIds" not found');
+  if (!exists) generateError('NotFound', '"categoryIds" not found');
 };
 
 const createPost = async ({ user, body }) => {
   const { title, content, categoryIds } = body;
   const userDb = await userUtil.getUserByEmail(user);
+  if (!userDb) generateError('NotFound', '"user" not found in database');
   await Promise.all(categoryIds.map(async (categoryId) => {
     await existsCategorie(categoryId);
   }));
