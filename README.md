@@ -7,9 +7,9 @@ API para um blog. Desenvolvida em [Node.js](https://nodejs.org/en/), com [JavaSc
 <details>
   <summary>📷 <strong>Screenshot</strong></summary><br />
 
-| [<img alt="Screenshot da API" height="400" width="auto" src="./blogApi.gif">](./src/images/blogApi.gif "Screenshot da API") |
-|-----------------------------------------------------------------------------------------------------------------------------|
-| **Figura** **1.1** - Gif da API                                                                                             |
+| [<img alt="Screenshot da API" height="400" width="auto" src="./src/images/blogApi.gif">](./src/images/blogApi.gif "Screenshot da API") |
+|----------------------------------------------------------------------------------------------------------------------------------------|
+| **Figura** **1.1** - Gif da API                                                                                                        |
 </details>
 
 <details>
