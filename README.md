@@ -44,9 +44,8 @@ $ npm install
 ```
 
 ### Definindo váriaveis de ambiente
-```bash
-# Renomei o arquivo `.env.example` para `.env`, substituindo os valores por seus respectivos dados locais.
-```
+
+> Renomei o arquivo `.env.example` para `.env`, substituindo os valores por seus respectivos dados locais.
 
 ### Criando o banco de dados
 
@@ -60,8 +59,8 @@ $ npx sequelize-cli db:seed:all
 
 ## Endpoints
 
-> - Use algum dos seguintes programas para fazer as requisições: [Postman](https://www.postman.com/) ou [Thunder Client](https://www.thunderclient.com/) ou [Insomnia](https://insomnia.rest/).
-> - Se estiver utilizando o **Postman**, vá em importe a [`collection.json`](./ostman/collection.json) do repositório, que está localizada em `./postman/collection.json`.
+> Use algum dos seguintes programas para fazer as requisições: [Postman](https://www.postman.com/) ou [Thunder Client](https://www.thunderclient.com/) ou [Insomnia](https://insomnia.rest/).
+> Se estiver utilizando o **Postman**, vá em importe a [`collection.json`](./ostman/collection.json) do repositório, que está localizada em `./postman/collection.json`.
 
 ### Usuários
 
