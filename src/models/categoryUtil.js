@@ -1,4 +1,4 @@
-const { Category } = require('..');
+const { Category } = require('../db/entity');
 
 const isUniqueCategory = async (name) => {
   const category = await Category.findOne({ where: { name } });

@@ -1,6 +1,6 @@
 const { Op } = require('sequelize');
-const { BlogPost, PostsCategory, Category, User } = require('..');
-const { generateError } = require('../../middlewares');
+const { BlogPost, PostsCategory, Category, User } = require('../db/entity');
+const { generateError } = require('../middlewares');
 
 const handleDataValue = (array) => array.map(({ dataValues }) => ({
     ...dataValues,

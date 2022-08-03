@@ -1,4 +1,4 @@
-const { User } = require('..');
+const { User } = require('../db/entity');
 
 const getEmail = async (email) => {
   const user = await User.findOne({ where: { email } });

@@ -1,5 +1,5 @@
-const { User } = require('..');
-const generateToken = require('./jwt');
+const { User } = require('../db/entity');
+const generateToken = require('../middlewares/jwt');
 
 const getAllClear = async () => {
   const users = await User.findAll();
