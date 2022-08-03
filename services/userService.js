@@ -1,4 +1,4 @@
-const { userUtil } = require('../models/utils');
+const { userUtil, loginUtil } = require('../models/utils');
 const { generateError } = require('../middlewares');
 
 const getAll = () => userUtil.getAllClear();
@@ -17,6 +17,8 @@ const isUniqueEmail = async (email) => {
 const createUser = (user) => (userUtil.createUser(user));
 
 const deleteUserById = async (user) => {
+  const userDB = await loginUtil.getEmail(user.user);
+  if (!userDB) generateError('NotFound', 'User does not exist');
   await userUtil.deleteUserById(user);
 };
 
