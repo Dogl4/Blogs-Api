@@ -27,51 +27,46 @@ API para um blog. Desenvolvida em [Node.js](https://nodejs.org/en/), com [JavaSc
 
 ## Rodando API localmente
 
-#### 1. Pré-requisitos
+1. #### Pré-requisitos
+    > Ter o [NodeJS](https://nodejs.org/en/) e o [MySQL](https://www.mysql.com/) instalados.
+2. #### Baixando o repositório
+    ```bash
+    # clonando o repositório ou baixe por zip(ali em cima)
+    $ git clone git@github.com:Dogl4/Blogs-Api.git
 
-> Ter o [NodeJS](https://nodejs.org/en/) e o [MySQL](https://www.mysql.com/) instalados.
+    # entrando na pasta do repositório
+    $ cd Blogs-Api
 
-#### 2. Baixando o repositório
+    # instalando dependências
+    $ npm install
+    ```
+3. #### Definindo váriaveis de ambiente
+    > Renomei o arquivo `.env.example` para `.env`, substituindo os valores por seus respectivos dados locais.
+4. #### Criando o banco de dados
+    ```bash
+    # criando o banco de dados
+    $ npm run init
 
-```bash
-# clonando o repositório ou baixe por zip(ali em cima)
-$ git clone git@github.com:Dogl4/Blogs-Api.git
+    # populando o banco, executando as seeds
+    $ npm run seed
 
-# entrando na pasta do repositório
-$ cd Blogs-Api
+    # se quiser deletar o banco de dados
+    $ npm run drop
+    ```
+5. #### Rodando a API
+    ```bash
+    # iniciando o servidor
+    $ npm run start
 
-# instalando dependências
-$ npm install
-```
-#### 3. Definindo váriaveis de ambiente
-
-> Renomei o arquivo `.env.example` para `.env`, substituindo os valores por seus respectivos dados locais.
-#### 4. Criando o banco de dados
-
-```bash
-# criando o banco de dados
-$ npm run init
-
-# populando o banco, executando as seeds
-$ npm run seed
-
-# se quiser deletar o banco de dados
-$ npm run drop
-```
-
-#### 5. Rodando a API
-
-```bash
-# iniciando o servidor
-$ npm run start
-
-# iniciando o servidor em modo de desenvolvimento
-$ npm run dev
-```
+    # iniciando o servidor em modo de desenvolvimento
+    $ npm run dev
+    ```
 
 ## Endpoints
-> Use algum dos seguintes programas para fazer as requisições: [Postman](https://www.postman.com/) ou [Thunder Client](https://www.thunderclient.com/) ou [Insomnia](https://insomnia.rest/).
-> Se estiver utilizando o **Postman**, vá em importe a [`collection.json`](./postman/collection.json) do repositório, que está localizada em `./postman/collection.json`.
+
+>  Use algum dos seguintes programas para fazer as requisições: [Postman](https://www.postman.com/) ou [Thunder Client](https://www.thunderclient.com/) ou [Insomnia](https://insomnia.rest/).
+>  Se estiver utilizando o **Postman**, vá em importe a [`collection.json`](./postman/collection.json) do repositório, que está localizada em `./postman/collection.json`. <br />
+>  Rotas com 🔐 (**protected**) são protegidas por um token JWT.
 
 #### Usuários
 
@@ -831,10 +826,10 @@ Estas pessoas participaram deste projeto:
       </a>
     </td>
   </tr>
-  <td width="120px;">
+  <td width="120px;" align="center">
     Desenvolvimento do código da api, requisições, validações.
   </td>
-  <td width="120px;">
+  <td width="120px;" align="center">
     Ideia e banco.
   </td>
   </th>
