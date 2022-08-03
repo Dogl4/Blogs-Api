@@ -80,23 +80,15 @@ $ npx sequelize-cli db:seed:all
       ```
 
   - Response sucesso:
-      - Status: `201 Created`
-      - Body:
-        ```json
-        {
-            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc0FkbWluIjpmYWxzZSwidXNlckVtYWlsIjoiYWFhQGFhYS5jbyIsImlhdCI6MTY1OTM1NjE1NywiZXhwIjoxNjU5NDQyNTU3LCJzdWIiOiJhYWFAYWFhLmNvIn0.y3TmHszGD1XvS-PatCJ1zofM8ZLG4YnGm5UantcP2Ak"
-        }
-        ```
-
-  - Response erro:
-    - Status: `409 Conflict`
-    - Body: 
+    - Status: `201 Created`
+    - Body:
       ```json
       {
-          "message": "User already registered"
+          "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc0FkbWluIjpmYWxzZSwidXNlckVtYWlsIjoiYWFhQGFhYS5jbyIsImlhdCI6MTY1OTM1NjE1NywiZXhwIjoxNjU5NDQyNTU3LCJzdWIiOiJhYWFAYWFhLmNvIn0.y3TmHszGD1XvS-PatCJ1zofM8ZLG4YnGm5UantcP2Ak"
       }
       ```
 
+  - Response erro:
     - Status: `400 Bad Request`
     - Body:
       ```json
@@ -124,6 +116,14 @@ $ npx sequelize-cli db:seed:all
           "message": "\"password\" length must be at least 6 characters long"
       }
       ```
+
+    - Status: `409 Conflict`
+    - Body: 
+      ```json
+      {
+          "message": "User already registered"
+      }
+      ```
 </details>
 
 - <details>
@@ -142,13 +142,13 @@ $ npx sequelize-cli db:seed:all
       ```
 
   - Response sucesso:
-      - Status: `200 OK`
-      - Body:
-        ```json
-        {
-            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc0FkbWluIjpmYWxzZSwidXNlckVtYWlsIjoiYWFhQGFhYS5jbyIsImlhdCI6MTY1OTUyNDkwNiwiZXhwIjoxNjU5NjExMzA2LCJzdWIiOiJhYWFAYWFhLmNvIn0.tHMoYbyjXGYEK0ZghfmUh3jmBOv4cZxRbDjZrYYKVL8"
-        }
-        ```
+    - Status: `200 OK`
+    - Body:
+      ```json
+      {
+          "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc0FkbWluIjpmYWxzZSwidXNlckVtYWlsIjoiYWFhQGFhYS5jbyIsImlhdCI6MTY1OTUyNDkwNiwiZXhwIjoxNjU5NjExMzA2LCJzdWIiOiJhYWFAYWFhLmNvIn0.tHMoYbyjXGYEK0ZghfmUh3jmBOv4cZxRbDjZrYYKVL8"
+      }
+      ```
 
   - Response erro:
     - Status: `400 Bad Request`
@@ -370,6 +370,19 @@ $ npx sequelize-cli db:seed:all
       ```
 
   - Response erro:
+    - Status: `400 Bad Request`
+    - Body:
+      ```json
+      {
+          "message": "\"name\" is required"
+      }
+      ```
+      ```json
+      {
+          "message": "\"name\" is not allowed to be empty"
+      }
+      ```
+
     - Status: `401 Unauthorized`
     - Body: 
       ```json
@@ -391,18 +404,6 @@ $ npx sequelize-cli db:seed:all
       }
       ```
 
-    - Status: `400 Bad Request`
-    - Body:
-      ```json
-      {
-          "message": "\"name\" is required"
-      }
-      ```
-      ```json
-      {
-          "message": "\"name\" is not allowed to be empty"
-      }
-      ```
 </details>
 
 - <details>
@@ -458,13 +459,255 @@ $ npx sequelize-cli db:seed:all
       ```
 </details>
 
+
+### Posts
+
+- <details>
+      <summary><strong>POST</strong> (cadastra)</summary>
+
+  - Url:
+     - `/post`
+     - Exemplo: `http://localhost:3000/post`
+  - Request:
+    - Headers:
+      ```json
+        {
+            "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc0FkbWluIjpmYWxzZSwidXNlckVtYWlsIjoiZG9vdWdsbGFzQGhvdG1haWwuY29tLmJyIiwiaWF0IjoxNjU5NTI1NjgzLCJleHAiOjE2NTk2MTIwODMsInN1YiI6ImRvb3VnbGxhc0Bob3RtYWlsLmNvbS5iciJ9.HlIe_JlHWPBdqyh80fCR-umYbVwy0aFqaGIMI63kgWQ",
+        }
+      ```
+    - Body:
+      ```json
+      {
+          "title": "Post do Futuro",
+          "content": "Inovação na escola",
+          "categoryIds": [1,2]
+      }
+      ```
+
+  - Response sucesso:
+    - Status: `201 Created`
+    - Body:
+      ```json
+      {
+          "id": 10,
+          "userId": 7,
+          "title": "Post do Futuro",
+          "content": "Inovação na escola"
+      }
+      ```
+
+  - Response erro:
+    - Status: `400 Bad Request`
+    - Body:
+      ```json
+      {
+          "message": "\"name\" is required"
+      }
+      ```
+      ```json
+      {
+          "message": "\"name\" is not allowed to be empty"
+      }
+      ```
+
+    - Status: `401 Unauthorized`
+    - Body: 
+      ```json
+      {
+          "message": "Token not found"
+      }
+      ```
+      ```json
+      {
+          "message": "Expired or invalid token"
+      }
+      ```
+
+    - Status: `409 Conflict`
+    - Body: 
+      ```json
+      {
+          "message": "Categorier already registered"
+      }
+      ```
+</details>
+
+- <details>
+      <summary><strong>GET</strong> (todas posts)</summary>
+
+  - Url:
+     - `/post`
+     - Exemplo: `http://localhost:3000/post`
+  - Request:
+    - Headers:
+      ```json
+        {
+            "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc0FkbWluIjpmYWxzZSwidXNlckVtYWlsIjoiZG9vdWdsbGFzQGhvdG1haWwuY29tLmJyIiwiaWF0IjoxNjU5NTI1NjgzLCJleHAiOjE2NTk2MTIwODMsInN1YiI6ImRvb3VnbGxhc0Bob3RtYWlsLmNvbS5iciJ9.HlIe_JlHWPBdqyh80fCR-umYbVwy0aFqaGIMI63kgWQ",
+        }
+      ```
+
+  - Response sucesso:
+    - Status: `200 OK`
+    - Body:
+      ```json
+      [
+          {
+              "id": 1,
+              "title": "Post do Ano",
+              "content": "Melhor post do ano",
+              "userId": 1,
+              "published": "2011-08-01T19:58:00.000Z",
+              "updated": "2011-08-01T19:58:51.000Z",
+              "user": {
+                  "id": 1,
+                  "displayName": "Lewis Hamilton",
+                  "email": "lewishamilton@gmail.com",
+                  "image": "https://upload.wikimedia.org/wikipedia/commons/1/18/Lewis_Hamilton_2016_Malaysia_2.jpg"
+              },
+              "categories": [
+                  {
+                      "id": 1,
+                      "name": "Inovação"
+                  }
+              ]
+          },
+          {
+              "id": 2,
+              "title": "Vamos que vamos",
+              "content": "Foguete não tem ré",
+              "userId": 1,
+              "published": "2011-08-01T19:58:00.000Z",
+              "updated": "2011-08-01T19:58:51.000Z",
+              "user": {
+                  "id": 1,
+                  "displayName": "Lewis Hamilton",
+                  "email": "lewishamilton@gmail.com",
+                  "image": "https://upload.wikimedia.org/wikipedia/commons/1/18/Lewis_Hamilton_2016_Malaysia_2.jpg"
+              },
+              "categories": [
+                  {
+                      "id": 2,
+                      "name": "Escola"
+                  }
+              ]
+          }
+      ]
+      ```
+
+  - Response erro:
+    - Status: `401 Unauthorized`
+    - Body: 
+      ```json
+      {
+          "message": "Token not found"
+      }
+      ```
+      ```json
+      {
+          "message": "Expired or invalid token"
+      }
+      ```
+</details>
+
+- <details>
+      <summary><strong>GET</strong> (um usuário)</summary>
+
+  - Url:
+     - `/post/:id`
+     - Exemplo: `http://localhost:3000/post/1`
+  - Request:
+    - Headers:
+      ```json
+        {
+            "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc0FkbWluIjpmYWxzZSwidXNlckVtYWlsIjoiZG9vdWdsbGFzQGhvdG1haWwuY29tLmJyIiwiaWF0IjoxNjU5NTI1NjgzLCJleHAiOjE2NTk2MTIwODMsInN1YiI6ImRvb3VnbGxhc0Bob3RtYWlsLmNvbS5iciJ9.HlIe_JlHWPBdqyh80fCR-umYbVwy0aFqaGIMI63kgWQ",
+        }
+      ```
+
+  - Response sucesso:
+    - Status: `200 OK`
+    - Body:
+      ```json
+      {
+          "id": 1,
+          "title": "Post do Ano",
+          "content": "Melhor post do ano",
+          "userId": 1,
+          "published": "2011-08-01T19:58:00.000Z",
+          "updated": "2011-08-01T19:58:51.000Z",
+          "user": {
+              "id": 1,
+              "displayName": "Lewis Hamilton",
+              "email": "lewishamilton@gmail.com",
+              "image": "https://upload.wikimedia.org/wikipedia/commons/1/18/Lewis_Hamilton_2016_Malaysia_2.jpg"
+          },
+          "categories": [
+              {
+                  "id": 1,
+                  "name": "Inovação"
+              }
+          ]
+      }
+      ```
+
+  - Response erro:
+    - Status: `401 Unauthorized`
+    - Body: 
+      ```json
+      {
+          "message": "Token not found"
+      }
+      ```
+      ```json
+      {
+          "message": "Expired or invalid token"
+      }
+      ```
+</details>
+<!-- 
+- <details>
+      <summary><strong>DELETE</strong> (deleta usuário)</summary>
+
+  - Url:
+     - `/post/:id`
+     - Exemplo: `http://localhost:3000/post/1`
+  - Request:
+    - Headers:
+      ```json
+        {
+            "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc0FkbWluIjpmYWxzZSwidXNlckVtYWlsIjoiZG9vdWdsbGFzQGhvdG1haWwuY29tLmJyIiwiaWF0IjoxNjU5NTI1NjgzLCJleHAiOjE2NTk2MTIwODMsInN1YiI6ImRvb3VnbGxhc0Bob3RtYWlsLmNvbS5iciJ9.HlIe_JlHWPBdqyh80fCR-umYbVwy0aFqaGIMI63kgWQ",
+        }
+      ```
+
+  - Response sucesso:
+    - Status: `204 No Content`
+
+  - Response erro:
+    - Status: `401 Unauthorized`
+    - Body: 
+      ```json
+      {
+          "message": "Token not found"
+      }
+      ```
+      ```json
+      {
+          "message": "Expired or invalid token"
+      }
+      ```
+
+    - Status: `404 Not Found`
+    - Body: 
+      ```json
+      {
+          "message": "User does not exist"
+      }
+      ```
+</details> -->
+
 ---
 
 > Modificando(antigo)...
 
-- POST - `/post`
-- GET - `/post`
-- GET - `/post:id`
 - GET - `/post/search?q=`
 - DELETE - `/post:id`
 
