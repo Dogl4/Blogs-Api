@@ -65,7 +65,7 @@ API para um blog. Desenvolvida em [Node.js](https://nodejs.org/en/), com [JavaSc
 ## Endpoints
 
 >  Use algum dos seguintes programas para fazer as requisições: [Postman](https://www.postman.com/) ou [Thunder Client](https://www.thunderclient.com/) ou [Insomnia](https://insomnia.rest/).
->  Se estiver utilizando o **Postman**, vá em importe a [`collection.json`](./postman/collection.json) do repositório, que está localizada em `./postman/collection.json`. <br />
+>  Se estiver utilizando o **Postman**, vá em importe a [`collection.json`](./postman/collection.json) do repositório, que está localizada em `./postman/collection.json`.
 >  Rotas com 🔐 (**protected**) são protegidas por um token JWT.
 
 #### Usuários
