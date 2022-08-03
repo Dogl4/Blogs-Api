@@ -9,7 +9,7 @@ API para um blog. Desenvolvida em [Node.js](https://nodejs.org/en/), com [JavaSc
 
 | [<img alt="Screenshot da API" height="400" width="auto" src="./blogApi.gif">](./blogApi.gif "Screenshot da API") |
 |------------------------------------------------------------------------------------------------------------------|
-| _1.1-api-gif_                                                                                                    |
+| **Figura** **1.1** - Gif da API                                                                                  |
 </details>
 
 <details>
@@ -64,9 +64,8 @@ $ npx sequelize-cli db:seed:all
 
 ### Usuários
 
-> Modificando(novo)...
 - <details>
-      <summary>POST (cadastra)</summary>
+      <summary><strong>POST</strong> (cadastra)</summary>
 
   - Url:
      - `/user`
@@ -90,13 +89,13 @@ $ npx sequelize-cli db:seed:all
         ```
 
   - Response erro:
-      - Status: `409 Conflict`
-      - Body: 
-        ```json
-        {
-            "message": "User already registered"
-        }
-        ```
+    - Status: `409 Conflict`
+    - Body: 
+      ```json
+      {
+          "message": "User already registered"
+      }
+      ```
 
     - Status: `400 Bad Request`
     - Body:
@@ -122,7 +121,339 @@ $ npx sequelize-cli db:seed:all
       ```
       ```json
       {
-          "message": "\"password\" length must be 6 characters long"
+          "message": "\"password\" length must be at least 6 characters long"
+      }
+      ```
+</details>
+
+- <details>
+      <summary><strong>POST</strong> (login)</summary>
+
+  - Url:
+     - `/login`
+     - Exemplo: `http://localhost:3000/login`
+  - Request:
+    - Body:
+      ```json
+        {
+            "email": "doougllas@hotmail.com.br",
+            "password": "123456"
+        }
+      ```
+
+  - Response sucesso:
+      - Status: `200 OK`
+      - Body:
+        ```json
+        {
+            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc0FkbWluIjpmYWxzZSwidXNlckVtYWlsIjoiYWFhQGFhYS5jbyIsImlhdCI6MTY1OTUyNDkwNiwiZXhwIjoxNjU5NjExMzA2LCJzdWIiOiJhYWFAYWFhLmNvIn0.tHMoYbyjXGYEK0ZghfmUh3jmBOv4cZxRbDjZrYYKVL8"
+        }
+        ```
+
+  - Response erro:
+    - Status: `400 Bad Request`
+    - Body:
+      ```json
+      {
+          "message": "\"email\" is required"
+      }
+      ```
+      ```json
+      {
+          "message": "\"email\" is not allowed to be empty"
+      }
+      ```
+      ```json
+      {
+          "message": "\"email\" must be a valid email"
+      }
+      ```
+      ```json
+      {
+          "message": "\"password\" is required"
+      }
+      ```
+      ```json
+      {
+          "message": "\"password\" is not allowed to be empty"
+      }
+      ```
+      ```json
+      {
+          "message": "\"password\" length must be at least 6 characters long"
+      }
+      ```
+      ```json
+      {
+          "message": "Invalid fields"
+      }
+      ```
+</details>
+
+- <details>
+      <summary><strong>GET</strong> (todos os usuários)</summary>
+
+  - Url:
+     - `/user`
+     - Exemplo: `http://localhost:3000/user`
+  - Request:
+    - Headers:
+      ```json
+        {
+            "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc0FkbWluIjpmYWxzZSwidXNlckVtYWlsIjoiZG9vdWdsbGFzQGhvdG1haWwuY29tLmJyIiwiaWF0IjoxNjU5NTI1NjgzLCJleHAiOjE2NTk2MTIwODMsInN1YiI6ImRvb3VnbGxhc0Bob3RtYWlsLmNvbS5iciJ9.HlIe_JlHWPBdqyh80fCR-umYbVwy0aFqaGIMI63kgWQ",
+        }
+      ```
+
+  - Response sucesso:
+    - Status: `200 OK`
+    - Body:
+      ```json
+      [
+          {
+              "id": 1,
+              "displayName": "Lewis Hamilton",
+              "email": "lewishamilton@gmail.com",
+              "password": "123456",
+              "image": "https://upload.wikimedia.org/wikipedia/commons/1/18/Lewis_Hamilton_2016_Malaysia_2.jpg"
+          },
+          {
+              "id": 2,
+              "displayName": "Michael Schumacher",
+              "email": "MichaelSchumacher@gmail.com",
+              "password": "123456",
+              "image": "https://sportbuzz.uol.com.br/media/_versions/gettyimages-52491565_widelg.jpg"
+          },
+          {
+              "id": 3,
+              "displayName": null,
+              "email": "aaa@aaa.co",
+              "password": "123456",
+              "image": null
+          },
+          {
+              "id": 4,
+              "displayName": null,
+              "email": "doougllas@hotmail.com.br",
+              "password": "123456",
+              "image": null
+          }
+      ]
+      ```
+
+  - Response erro:
+    - Status: `401 Unauthorized`
+    - Body: 
+      ```json
+      {
+          "message": "Token not found"
+      }
+      ```
+      ```json
+      {
+          "message": "Expired or invalid token"
+      }
+      ```
+</details>
+
+- <details>
+      <summary><strong>GET</strong> (um usuário)</summary>
+
+  - Url:
+     - `/user/:id`
+     - Exemplo: `http://localhost:3000/user/1`
+  - Request:
+    - Headers:
+      ```json
+        {
+            "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc0FkbWluIjpmYWxzZSwidXNlckVtYWlsIjoiZG9vdWdsbGFzQGhvdG1haWwuY29tLmJyIiwiaWF0IjoxNjU5NTI1NjgzLCJleHAiOjE2NTk2MTIwODMsInN1YiI6ImRvb3VnbGxhc0Bob3RtYWlsLmNvbS5iciJ9.HlIe_JlHWPBdqyh80fCR-umYbVwy0aFqaGIMI63kgWQ",
+        }
+      ```
+
+  - Response sucesso:
+    - Status: `200 OK`
+    - Body:
+      ```json
+      {
+          "id": 1,
+          "displayName": "Lewis Hamilton",
+          "email": "lewishamilton@gmail.com",
+          "password": "123456",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/1/18/Lewis_Hamilton_2016_Malaysia_2.jpg"
+      }
+      ```
+
+  - Response erro:
+    - Status: `401 Unauthorized`
+    - Body: 
+      ```json
+      {
+          "message": "Token not found"
+      }
+      ```
+      ```json
+      {
+          "message": "Expired or invalid token"
+      }
+      ```
+</details>
+
+- <details>
+      <summary><strong>DELETE</strong> (deleta usuário)</summary>
+
+  - Url:
+     - `/user/me`
+     - Exemplo: `http://localhost:3000/user/me`
+  - Request:
+    - Headers:
+      ```json
+        {
+            "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc0FkbWluIjpmYWxzZSwidXNlckVtYWlsIjoiZG9vdWdsbGFzQGhvdG1haWwuY29tLmJyIiwiaWF0IjoxNjU5NTI1NjgzLCJleHAiOjE2NTk2MTIwODMsInN1YiI6ImRvb3VnbGxhc0Bob3RtYWlsLmNvbS5iciJ9.HlIe_JlHWPBdqyh80fCR-umYbVwy0aFqaGIMI63kgWQ",
+        }
+      ```
+
+  - Response sucesso:
+    - Status: `204 No Content`
+
+  - Response erro:
+    - Status: `401 Unauthorized`
+    - Body: 
+      ```json
+      {
+          "message": "Token not found"
+      }
+      ```
+      ```json
+      {
+          "message": "Expired or invalid token"
+      }
+      ```
+
+    - Status: `404 Not Found`
+    - Body: 
+      ```json
+      {
+          "message": "User does not exist"
+      }
+      ```
+</details>
+
+### Categorias
+
+- <details>
+      <summary><strong>POST</strong> (cadastra)</summary>
+
+  - Url:
+     - `/categories`
+     - Exemplo: `http://localhost:3000/categories`
+  - Request:
+    - Headers:
+      ```json
+        {
+            "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc0FkbWluIjpmYWxzZSwidXNlckVtYWlsIjoiZG9vdWdsbGFzQGhvdG1haWwuY29tLmJyIiwiaWF0IjoxNjU5NTI1NjgzLCJleHAiOjE2NTk2MTIwODMsInN1YiI6ImRvb3VnbGxhc0Bob3RtYWlsLmNvbS5iciJ9.HlIe_JlHWPBdqyh80fCR-umYbVwy0aFqaGIMI63kgWQ",
+        }
+      ```
+    - Body:
+      ```json
+      {
+          "name": "Programação"
+      }
+      ```
+
+  - Response sucesso:
+    - Status: `201 Created`
+    - Body:
+      ```json
+      {
+          "id": 4,
+          "name": "Programação"
+      }
+      ```
+
+  - Response erro:
+    - Status: `401 Unauthorized`
+    - Body: 
+      ```json
+      {
+          "message": "Token not found"
+      }
+      ```
+      ```json
+      {
+          "message": "Expired or invalid token"
+      }
+      ```
+
+    - Status: `409 Conflict`
+    - Body: 
+      ```json
+      {
+          "message": "Categorier already registered"
+      }
+      ```
+
+    - Status: `400 Bad Request`
+    - Body:
+      ```json
+      {
+          "message": "\"name\" is required"
+      }
+      ```
+      ```json
+      {
+          "message": "\"name\" is not allowed to be empty"
+      }
+      ```
+</details>
+
+- <details>
+      <summary><strong>GET</strong> (todas categorias)</summary>
+
+  - Url:
+     - `/categories`
+     - Exemplo: `http://localhost:3000/categories`
+  - Request:
+    - Headers:
+      ```json
+        {
+            "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc0FkbWluIjpmYWxzZSwidXNlckVtYWlsIjoiZG9vdWdsbGFzQGhvdG1haWwuY29tLmJyIiwiaWF0IjoxNjU5NTI1NjgzLCJleHAiOjE2NTk2MTIwODMsInN1YiI6ImRvb3VnbGxhc0Bob3RtYWlsLmNvbS5iciJ9.HlIe_JlHWPBdqyh80fCR-umYbVwy0aFqaGIMI63kgWQ",
+        }
+      ```
+
+  - Response sucesso:
+    - Status: `200 OK`
+    - Body:
+      ```json
+      [
+          {
+              "id": 1,
+              "name": "Inovação"
+          },
+          {
+              "id": 2,
+              "name": "Escola"
+          },
+          {
+              "id": 3,
+              "name": "1"
+          },
+          {
+              "id": 4,
+              "name": "Programação"
+          }
+      ]
+      ```
+
+  - Response erro:
+    - Status: `401 Unauthorized`
+    - Body: 
+      ```json
+      {
+          "message": "Token not found"
+      }
+      ```
+      ```json
+      {
+          "message": "Expired or invalid token"
       }
       ```
 </details>
@@ -130,17 +461,12 @@ $ npx sequelize-cli db:seed:all
 ---
 
 > Modificando(antigo)...
-- GET - `/user`
-- GET - `/user/id`
-- POST - `/login`
-- GET - `/categories`
-- POST - `/categories`
+
 - POST - `/post`
 - GET - `/post`
 - GET - `/post:id`
-- DELETE - `/post:id`
-- DELETE - `/user/me`
 - GET - `/post/search?q=`
+- DELETE - `/post:id`
 
 ## 📈 Status do projeto
 
