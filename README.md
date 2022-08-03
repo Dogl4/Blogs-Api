@@ -501,12 +501,38 @@ $ npx sequelize-cli db:seed:all
     - Body:
       ```json
       {
-          "message": "\"name\" is required"
+          "message": "\"title\" is required"
       }
       ```
       ```json
       {
-          "message": "\"name\" is not allowed to be empty"
+          "message": "\"title\" is not allowed to be empty"
+      }
+      {
+          "message": "\"content\" is required"
+      }
+      ```
+      ```json
+      {
+          "message": "\"content\" is not allowed to be empty"
+      }
+            {
+          "message": "\"categoryIds\" is required"
+      }
+      ```
+      ```json
+      {
+          "message": "\"categoryIds\" must be an array"
+      }
+      ```
+      ```json
+      {
+          "message": "\"categoryIds\" does not contain 1 required value(s)"
+      }
+      ```
+      ```json
+      {
+          "message": "\"categoryIds[0]\" must be a number"
       }
       ```
 
@@ -523,11 +549,11 @@ $ npx sequelize-cli db:seed:all
       }
       ```
 
-    - Status: `409 Conflict`
+    - Status: `404 Not Found`
     - Body: 
       ```json
       {
-          "message": "Categorier already registered"
+          "message": "\"categoryIds\" not found"
       }
       ```
 </details>
