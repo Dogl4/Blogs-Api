@@ -1,5 +1,5 @@
 require('dotenv').config();
-const app = require('./app');
+const app = require('./src/api/app');
 
 app.get('/', (_request, response) => { response.send(); });
 

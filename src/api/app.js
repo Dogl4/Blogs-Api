@@ -1,8 +1,8 @@
 const app = require('express')();
 const bodyParser = require('body-parser');
 
-const router = require('./routers');
-const middlewares = require('./middlewares');
+const router = require('../routers');
+const middlewares = require('../middlewares');
 
 app.use(bodyParser.json());
 
