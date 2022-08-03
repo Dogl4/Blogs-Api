@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "7746d919-a925-4879-9477-409b126ff8cc",
+		"_postman_id": "27820bd3-889c-4f24-9238-7bc62e910178",
 		"name": "Blog-Api",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "19152983"
@@ -383,12 +383,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3010/post/search?q=vamos",
+							"raw": "http://localhost:3000/post/search?q=vamos",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3010",
+							"port": "3000",
 							"path": [
 								"post",
 								"search"

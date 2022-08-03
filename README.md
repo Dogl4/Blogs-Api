@@ -61,6 +61,18 @@ API para um blog. Desenvolvida em [Node.js](https://nodejs.org/en/), com [JavaSc
     # iniciando o servidor em modo de desenvolvimento
     $ npm run dev
     ```
+    ```bash
+    # se não inicializar, verifica se não existe nada rodando na porta 3000, comando para linux
+    $ lsof -i:3000
+
+    # se existir, feche o processo, comando para linux
+    $ kill -9 $(lsof -t -i:3000)
+    ```
+    <details>
+      <summary><strong>Modificando a porta</strong></summary><br />
+
+    > A porta padrão é `3000`. Você pode alterar isso renomeando o arquivo `.env.example` para `.env` e modificando o valor da variável `PORT`.
+    </details>
 
 ## Endpoints
 
