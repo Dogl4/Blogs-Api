@@ -508,6 +508,8 @@ $ npx sequelize-cli db:seed:all
       {
           "message": "\"title\" is not allowed to be empty"
       }
+      ```
+      ```json
       {
           "message": "\"content\" is required"
       }
@@ -516,7 +518,9 @@ $ npx sequelize-cli db:seed:all
       {
           "message": "\"content\" is not allowed to be empty"
       }
-            {
+      ```
+      ```json
+      {
           "message": "\"categoryIds\" is required"
       }
       ```
@@ -689,7 +693,65 @@ $ npx sequelize-cli db:seed:all
       }
       ```
 </details>
-<!-- 
+
+
+- <details>
+      <summary><strong>GET</strong> (um post por título)</summary>
+
+  - Url:
+     - `/post/search?q=`
+     - Exemplo: `http://localhost:3000/post/search?q=vamos`
+  - Request:
+    - Headers:
+      ```json
+        {
+            "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc0FkbWluIjpmYWxzZSwidXNlckVtYWlsIjoiZG9vdWdsbGFzQGhvdG1haWwuY29tLmJyIiwiaWF0IjoxNjU5NTI1NjgzLCJleHAiOjE2NTk2MTIwODMsInN1YiI6ImRvb3VnbGxhc0Bob3RtYWlsLmNvbS5iciJ9.HlIe_JlHWPBdqyh80fCR-umYbVwy0aFqaGIMI63kgWQ",
+        }
+      ```
+
+  - Response sucesso:
+    - Status: `200 OK`
+    - Body:
+      ```json
+      [
+          {
+              "id": 2,
+              "title": "Vamos que vamos",
+              "content": "Foguete não tem ré",
+              "userId": 1,
+              "published": "2011-08-01T19:58:00.000Z",
+              "updated": "2011-08-01T19:58:51.000Z",
+              "user": {
+                  "id": 1,
+                  "displayName": "Lewis Hamilton",
+                  "email": "lewishamilton@gmail.com",
+                  "image": "https://upload.wikimedia.org/wikipedia/commons/1/18/Lewis_Hamilton_2016_Malaysia_2.jpg"
+              },
+              "categories": [
+                  {
+                      "id": 2,
+                      "name": "Escola"
+                  }
+              ]
+          }
+      ]
+      ```
+
+  - Response erro:
+    - Status: `401 Unauthorized`
+    - Body: 
+      ```json
+      {
+          "message": "Token not found"
+      }
+      ```
+      ```json
+      {
+          "message": "Expired or invalid token"
+      }
+      ```
+</details>
+
 - <details>
       <summary><strong>DELETE</strong> (deleta usuário)</summary>
 
@@ -720,28 +782,25 @@ $ npx sequelize-cli db:seed:all
           "message": "Expired or invalid token"
       }
       ```
+      ```json
+      {
+          "message": "Unauthorized user"
+      }
+      ```
 
     - Status: `404 Not Found`
     - Body: 
       ```json
       {
-          "message": "User does not exist"
+          "message": "Post does not exist"
       }
       ```
-</details> -->
-
----
-
-> Modificando(antigo)...
-
-- GET - `/post/search?q=`
-- DELETE - `/post:id`
+</details>
 
 ## 📈 Status do projeto
 
 <!-- ✅ Concluído  -->
 🚧 Em desenvolvimento
-> Estou melhorando a documentação.
 
 ## 👥 Colaboradores
 
