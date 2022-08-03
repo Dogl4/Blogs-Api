@@ -1,6 +1,6 @@
 # Projeto Blogs API
 
-## 📋 Descrição
+## Descrição
 
 API para um blog. Desenvolvida em [Node.js](https://nodejs.org/en/), com [JavaScript](https://www.javascript.com/learn/strings), [Express.js](https://expressjs.com/en/api.html) para ligar com rotas, [Sequelize](https://sequelize.org/)(ORM) para criar e gerenciar um banco de dados, [MySQL](https://www.mysql.com/), [JWT](https://jwt.io/) para autenticação e [Joi](https://www.npmjs.com/package/joi) para validação de dados. Com sistema **CRUD** (POST, GET, PUT e DELETE) utilizando a arquitetura **API-REST**(Representational State Transfer).
 
@@ -25,7 +25,7 @@ API para um blog. Desenvolvida em [Node.js](https://nodejs.org/en/), com [JavaSc
 - [Dotenv](https://www.npmjs.com/package/dotenv): Carregamento de variáveis de ambiente.
 </details>
 
-## 📥 Rodando API localmente
+## Rodando API localmente
 
 ### Pré-requisitos
 > Ter o [NodeJS](https://nodejs.org/en/) e o [MySQL](https://www.mysql.com/) instalados.
@@ -58,9 +58,10 @@ $ npx sequelize-cli db:create && npx sequelize-cli db:migrate
 $ npx sequelize-cli db:seed:all 
 ```
 
-## 🎈 Endpoints
+## Endpoints
 
-> Use algum dos seguintes programas para fazer as requisições:  [Thunder Client](https://www.thunderclient.com/) ou [Postman](https://www.postman.com/) ou [Insomnia](https://insomnia.rest/).
+> - Use algum dos seguintes programas para fazer as requisições: [Postman](https://www.postman.com/) ou [Thunder Client](https://www.thunderclient.com/) ou [Insomnia](https://insomnia.rest/).
+> - Se estiver utilizando o **Postman**, vá em importe a [`collection.json`](./ostman/collection.json) do repositório, que está localizada em `./postman/collection.json`.
 
 ### Usuários
 
@@ -797,12 +798,7 @@ $ npx sequelize-cli db:seed:all
       ```
 </details>
 
-## 📈 Status do projeto
-
-<!-- ✅ Concluído  -->
-🚧 Em desenvolvimento
-
-## 👥 Colaboradores
+## Colaboradores
 
 Estas pessoas participaram deste projeto:
 
