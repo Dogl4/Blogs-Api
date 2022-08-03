@@ -191,7 +191,7 @@ $ npx sequelize-cli db:seed:all
 </details>
 
 - <details>
-      <summary><strong>GET</strong> (todos os usuários)</summary>
+      <summary>🔐 <strong>GET</strong> (todos os usuários)</summary>
 
   - Url:
      - `/user`
@@ -256,7 +256,7 @@ $ npx sequelize-cli db:seed:all
 </details>
 
 - <details>
-      <summary><strong>GET</strong> (um usuário)</summary>
+      <summary>🔐 <strong>GET</strong> (um usuário)</summary>
 
   - Url:
      - `/user/:id`
@@ -298,7 +298,7 @@ $ npx sequelize-cli db:seed:all
 </details>
 
 - <details>
-      <summary><strong>DELETE</strong> (deleta usuário)</summary>
+      <summary>🔐 <strong>DELETE</strong> (deleta usuário)</summary>
 
   - Url:
      - `/user/me`
@@ -340,7 +340,7 @@ $ npx sequelize-cli db:seed:all
 ### Categorias
 
 - <details>
-      <summary><strong>POST</strong> (cadastra)</summary>
+      <summary>🔐 <strong>POST</strong> (cadastra)</summary>
 
   - Url:
      - `/categories`
@@ -407,7 +407,7 @@ $ npx sequelize-cli db:seed:all
 </details>
 
 - <details>
-      <summary><strong>GET</strong> (todas categorias)</summary>
+      <summary>🔐 <strong>GET</strong> (todas categorias)</summary>
 
   - Url:
      - `/categories`
@@ -463,7 +463,7 @@ $ npx sequelize-cli db:seed:all
 ### Posts
 
 - <details>
-      <summary><strong>POST</strong> (cadastra)</summary>
+      <summary>🔐 <strong>POST</strong> (cadastra)</summary>
 
   - Url:
      - `/post`
@@ -563,7 +563,7 @@ $ npx sequelize-cli db:seed:all
 </details>
 
 - <details>
-      <summary><strong>GET</strong> (todos posts)</summary>
+      <summary>🔐 <strong>GET</strong> (todos posts)</summary>
 
   - Url:
      - `/post`
@@ -640,7 +640,7 @@ $ npx sequelize-cli db:seed:all
 </details>
 
 - <details>
-      <summary><strong>GET</strong> (um post)</summary>
+      <summary>🔐 <strong>GET</strong> (um post)</summary>
 
   - Url:
      - `/post/:id`
@@ -696,7 +696,7 @@ $ npx sequelize-cli db:seed:all
 
 
 - <details>
-      <summary><strong>GET</strong> (um post por título)</summary>
+      <summary>🔐 <strong>GET</strong> (um post por título)</summary>
 
   - Url:
      - `/post/search?q=`
@@ -753,7 +753,7 @@ $ npx sequelize-cli db:seed:all
 </details>
 
 - <details>
-      <summary><strong>DELETE</strong> (deleta usuário)</summary>
+      <summary>🔐 <strong>DELETE</strong> (deleta usuário)</summary>
 
   - Url:
      - `/post/:id`
