@@ -533,7 +533,7 @@ $ npx sequelize-cli db:seed:all
 </details>
 
 - <details>
-      <summary><strong>GET</strong> (todas posts)</summary>
+      <summary><strong>GET</strong> (todos posts)</summary>
 
   - Url:
      - `/post`
@@ -610,7 +610,7 @@ $ npx sequelize-cli db:seed:all
 </details>
 
 - <details>
-      <summary><strong>GET</strong> (um usuário)</summary>
+      <summary><strong>GET</strong> (um post)</summary>
 
   - Url:
      - `/post/:id`
