@@ -15,8 +15,9 @@
     "shelljs": "0.8.4"
   },
   "scripts": {
-    "drop": "npx sequelize-cli db:drop $",
-    "seed": "npx sequelize-cli db:seed:all $",
+    "drop": "npx sequelize-cli --config ./src/config/config db:drop $",
+    "init": "npx sequelize-cli --config ./src/config/config db:create && npx sequelize-cli --config ./src/config/config db:migrate $",
+    "seed": "npx sequelize-cli --config ./src/config/config db:seed:all $",
     "dev": "npx nodemon index.js",
     "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json ."
   },

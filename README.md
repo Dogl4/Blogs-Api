@@ -27,10 +27,11 @@ API para um blog. Desenvolvida em [Node.js](https://nodejs.org/en/), com [JavaSc
 
 ## Rodando API localmente
 
-#### Pré-requisitos
+#### 1. Pré-requisitos
+
 > Ter o [NodeJS](https://nodejs.org/en/) e o [MySQL](https://www.mysql.com/) instalados.
 
-#### Baixando o repositório
+#### 2. Baixando o repositório
 
 ```bash
 # clonando o repositório ou baixe por zip(ali em cima)
@@ -42,23 +43,33 @@ $ cd Blogs-Api
 # instalando dependências
 $ npm install
 ```
-
-#### Definindo váriaveis de ambiente
+#### 3. Definindo váriaveis de ambiente
 
 > Renomei o arquivo `.env.example` para `.env`, substituindo os valores por seus respectivos dados locais.
-
-#### Criando o banco de dados
+#### 4. Criando o banco de dados
 
 ```bash
 # criando o banco de dados
-$ npx sequelize-cli db:create && npx sequelize-cli db:migrate
+$ npm run init
 
 # populando o banco, executando as seeds
-$ npx sequelize-cli db:seed:all 
+$ npm run seed
+
+# se quiser deletar o banco de dados
+$ npm run drop
+```
+
+#### 5. Rodando a API
+
+```bash
+# iniciando o servidor
+$ npm run start
+
+# iniciando o servidor em modo de desenvolvimento
+$ npm run dev
 ```
 
 ## Endpoints
-
 > Use algum dos seguintes programas para fazer as requisições: [Postman](https://www.postman.com/) ou [Thunder Client](https://www.thunderclient.com/) ou [Insomnia](https://insomnia.rest/).
 > Se estiver utilizando o **Postman**, vá em importe a [`collection.json`](./postman/collection.json) do repositório, que está localizada em `./postman/collection.json`.
 
