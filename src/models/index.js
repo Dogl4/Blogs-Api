@@ -1,13 +1,11 @@
-const categoryUtil = require('./categoryUtil');
-const loginUtil = require('./loginUtil');
-const generateToken = require('../middlewares/jwt');
-const userUtil = require('./userUtil');
-const postUtil = require('./postUtil');
+const categoryModel = require('./categoryModel');
+const loginModel = require('./loginModel');
+const userModel = require('./userModel');
+const postModel = require('./postModel');
 
 module.exports = {
-  categoryUtil,
-  loginUtil,
-  generateToken,
-  userUtil,
-  postUtil,
+  categoryModel,
+  loginModel,
+  userModel,
+  postModel,
 };

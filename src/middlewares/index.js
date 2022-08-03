@@ -5,11 +5,13 @@ const domainError = require('./domain-error');
 const serverError = require('./server-error');
 const generateError = require('./generateError');
 const authJwt = require('./authJwt');
+const generateToken = require('./jwt');
 
 module.exports = {
   joiError,
   domainError,
   serverError,
   generateError,
+  generateToken,
   authJwt,
 };
