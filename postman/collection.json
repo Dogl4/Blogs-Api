@@ -75,7 +75,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc0FkbWluIjpmYWxzZSwidXNlckVtYWlsIjoiZG9vdWdsbGFzQGhvdG1haWwuY29tLmJyIiwiaWF0IjoxNjU5NTI3NDM3LCJleHAiOjE2NTk2MTM4MzcsInN1YiI6ImRvb3VnbGxhc0Bob3RtYWlsLmNvbS5iciJ9.L1X-bnz7fnoMIoLQT4O-0wZKi0Kmu7Tn6B2SXRKTBcQ",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc0FkbWluIjpmYWxzZSwidXNlckVtYWlsIjoiZG9vdWdsbGFzQGhvdG1haWwuY29tLmJyIiwiaWF0IjoxNjU5NjIxODk1LCJleHAiOjE2NTk3MDgyOTUsInN1YiI6ImRvb3VnbGxhc0Bob3RtYWlsLmNvbS5iciJ9.Yo2XgIEwsPFzp6tTIKHgW7jDkbCOyaLTiL7NlL2PNV0",
 								"type": "text"
 							}
 						],
@@ -112,7 +112,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc0FkbWluIjpmYWxzZSwidXNlckVtYWlsIjoiZG9vdWdsbGFzQGhvdG1haWwuY29tLmJyIiwiaWF0IjoxNjU5NTI3NDM3LCJleHAiOjE2NTk2MTM4MzcsInN1YiI6ImRvb3VnbGxhc0Bob3RtYWlsLmNvbS5iciJ9.L1X-bnz7fnoMIoLQT4O-0wZKi0Kmu7Tn6B2SXRKTBcQ",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc0FkbWluIjpmYWxzZSwidXNlckVtYWlsIjoiZG9vdWdsbGFzQGhvdG1haWwuY29tLmJyIiwiaWF0IjoxNjU5NjIxODk1LCJleHAiOjE2NTk3MDgyOTUsInN1YiI6ImRvb3VnbGxhc0Bob3RtYWlsLmNvbS5iciJ9.Yo2XgIEwsPFzp6tTIKHgW7jDkbCOyaLTiL7NlL2PNV0",
 								"type": "text"
 							}
 						],
@@ -260,10 +260,16 @@
 					"name": "Register",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc0FkbWluIjpmYWxzZSwidXNlckVtYWlsIjoiZG9vdWdsbGFzQGhvdG1haWwuY29tLmJyIiwiaWF0IjoxNjU5NjQzMjQzLCJleHAiOjE2NTk3Mjk2NDMsInN1YiI6ImRvb3VnbGxhc0Bob3RtYWlsLmNvbS5iciJ9.isK1eFT6wBrO3WYMApp-FHuPwLs6OrsdNTb2EHb4WVE",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"doougllas@hotmail.com.br\",\n    \"password\": \"123456\"\n}",
+							"raw": "{\n    \"title\": \"Post do Futuro\",\n    \"content\": \"Inovação na escola\",\n    \"categoryIds\": [1,2]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -294,7 +300,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc0FkbWluIjpmYWxzZSwidXNlckVtYWlsIjoiZG9vdWdsbGFzQGhvdG1haWwuY29tLmJyIiwiaWF0IjoxNjU5NTI3NDM3LCJleHAiOjE2NTk2MTM4MzcsInN1YiI6ImRvb3VnbGxhc0Bob3RtYWlsLmNvbS5iciJ9.L1X-bnz7fnoMIoLQT4O-0wZKi0Kmu7Tn6B2SXRKTBcQ",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc0FkbWluIjpmYWxzZSwidXNlckVtYWlsIjoiZG9vdWdsbGFzQGhvdG1haWwuY29tLmJyIiwiaWF0IjoxNjU5NjQzMjQzLCJleHAiOjE2NTk3Mjk2NDMsInN1YiI6ImRvb3VnbGxhc0Bob3RtYWlsLmNvbS5iciJ9.isK1eFT6wBrO3WYMApp-FHuPwLs6OrsdNTb2EHb4WVE",
 								"type": "text"
 							}
 						],
@@ -331,7 +337,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc0FkbWluIjpmYWxzZSwidXNlckVtYWlsIjoiZG9vdWdsbGFzQGhvdG1haWwuY29tLmJyIiwiaWF0IjoxNjU5NTI3NDM3LCJleHAiOjE2NTk2MTM4MzcsInN1YiI6ImRvb3VnbGxhc0Bob3RtYWlsLmNvbS5iciJ9.L1X-bnz7fnoMIoLQT4O-0wZKi0Kmu7Tn6B2SXRKTBcQ",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc0FkbWluIjpmYWxzZSwidXNlckVtYWlsIjoiZG9vdWdsbGFzQGhvdG1haWwuY29tLmJyIiwiaWF0IjoxNjU5NjIxODk1LCJleHAiOjE2NTk3MDgyOTUsInN1YiI6ImRvb3VnbGxhc0Bob3RtYWlsLmNvbS5iciJ9.Yo2XgIEwsPFzp6tTIKHgW7jDkbCOyaLTiL7NlL2PNV0",
 								"type": "text"
 							}
 						],
@@ -369,7 +375,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc0FkbWluIjpmYWxzZSwidXNlckVtYWlsIjoiZG9vdWdsbGFzQGhvdG1haWwuY29tLmJyIiwiaWF0IjoxNjU5NTI3NDM3LCJleHAiOjE2NTk2MTM4MzcsInN1YiI6ImRvb3VnbGxhc0Bob3RtYWlsLmNvbS5iciJ9.L1X-bnz7fnoMIoLQT4O-0wZKi0Kmu7Tn6B2SXRKTBcQ",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc0FkbWluIjpmYWxzZSwidXNlckVtYWlsIjoiZG9vdWdsbGFzQGhvdG1haWwuY29tLmJyIiwiaWF0IjoxNjU5NjIxODk1LCJleHAiOjE2NTk3MDgyOTUsInN1YiI6ImRvb3VnbGxhc0Bob3RtYWlsLmNvbS5iciJ9.Yo2XgIEwsPFzp6tTIKHgW7jDkbCOyaLTiL7NlL2PNV0",
 								"type": "text"
 							}
 						],

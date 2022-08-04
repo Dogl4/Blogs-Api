@@ -11,24 +11,29 @@
     "joi": "^17.6.0",
     "jsonwebtoken": "^8.5.1",
     "mysql2": "2.1.0",
-    "sequelize": "6.3.4",
-    "shelljs": "0.8.4"
+    "sequelize": "^6.21.3",
+    "shelljs": "^0.8.5"
   },
   "scripts": {
     "drop": "npx sequelize-cli db:drop $",
     "init": "npx sequelize-cli db:create && npx sequelize-cli db:migrate $",
     "seed": "npx sequelize-cli db:seed:all $",
     "dev": "npx nodemon index.js",
-    "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json ."
+    "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json .",
+    "pretest": "npm run drop && npm run init && npm run seed",
+    "test": "npm run pretest && mocha tests/**/**/*.test.js"
   },
   "devDependencies": {
+    "chai": "^4.3.6",
     "eslint": "6.8.0",
     "eslint-config-airbnb-base": "14.2.0",
     "eslint-plugin-import": "2.22.1",
     "frisby": "2.1.2",
     "jest": "26.0.1",
+    "mocha": "^10.0.0",
     "nodemon": "^2.0.15",
     "sequelize-cli": "6.2.0",
+    "sinon": "^14.0.0",
     "supertest": "4.0.2"
   }
 }

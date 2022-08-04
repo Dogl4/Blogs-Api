@@ -1,5 +1,11 @@
 const Joi = require('joi');
 
-module.exports = Joi.object({
-  name: Joi.string().required(),
-});
+const categorySchema = (objectCategory) => Joi.object({
+  name: Joi.string().required()
+}).validate(objectCategory);
+
+module.exports = (req, _res, next) => {
+  const { error } = categorySchema(req.body);
+  if (error) throw error;
+  next();
+};

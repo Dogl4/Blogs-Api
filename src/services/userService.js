@@ -14,7 +14,10 @@ const isUniqueEmail = async (email) => {
   if (isUnique) generateError('Conflict', 'User already registered');
 };
 
-const createUser = (user) => (userModel.createUser(user));
+const createUser = async (user) => {
+  await isUniqueEmail(user.email);
+  return userModel.createUser(user);
+}
 
 const deleteUserById = async (user) => {
   const userDB = await loginModel.getEmail(user.user);
