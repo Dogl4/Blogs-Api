@@ -1,5 +1,4 @@
 const { loginService } = require('../services');
-const { login } = require('../schemas');
 
 const connecting = async (req, res, _next) => {
   const token = await loginService.loggingIn(req.body);

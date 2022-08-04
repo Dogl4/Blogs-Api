@@ -6,7 +6,10 @@ const isUniqueCategory = async (category) => {
   if (isUnique) generateError('Conflict', 'Categorier already registered');
 };
 
-const createCategory = ({ name }) => (categoryModel.createCategory({ name }));
+const createCategory = async ({ name }) => {
+  await isUniqueCategory(name);
+  return (categoryModel.createCategory({ name }));
+}
 
 const getCategories = () => categoryModel.getCategories();
 
