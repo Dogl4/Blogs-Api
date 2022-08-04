@@ -4,7 +4,7 @@ const Sinon = require('sinon');
 
 const { connecting } = require('../../../src/controllers/loginController');
 const { loginService } = require('../../../src/services');
-const { userMock, loginMock } = require('../../mocks');
+const { userMock, loginMock, statusMock } = require('../../mocks');
 
 describe('loginController', () => {
   describe('#connecting', () => {
@@ -20,7 +20,7 @@ describe('loginController', () => {
 
     it('should return status code 200', async () =>{
       await connecting(req, res, () => {});
-      expect(res.status.calledWith(userMock.status.OK)).to.be.true;
+      expect(res.status.calledWith(statusMock.OK)).to.be.true;
     })
 
     it('should return a token', async () => {

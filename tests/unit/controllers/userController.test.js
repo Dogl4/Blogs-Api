@@ -4,7 +4,7 @@ const Sinon = require('sinon');
 
 const { registerUser, getAllUsers, getByIdUser, deleteUserById } = require('../../../src/controllers/userController');
 const { userService } = require('../../../src/services');
-const { userMock } = require('../../mocks');
+const { userMock, statusMock } = require('../../mocks');
 
 describe('UserController', () => {
   describe('#registerUser', () => {
@@ -20,7 +20,7 @@ describe('UserController', () => {
 
     it('should return status code 201', async () =>{
       await registerUser(req, res, () => {});
-      expect(res.status.calledWith(userMock.status.CREATED)).to.be.true;
+      expect(res.status.calledWith(statusMock.CREATED)).to.be.true;
     })
 
     it('should return a token', async () => {
@@ -43,7 +43,7 @@ describe('UserController', () => {
     it('should return status code 200', async () => {
       await getAllUsers(req, res, () => {});
       expect(userService.getAll.called).to.have.been.true;
-      expect(res.status.calledWith(userMock.status.OK)).to.be.true;
+      expect(res.status.calledWith(statusMock.OK)).to.be.true;
     })
 
     it('should return an array of users', async () => {
@@ -67,7 +67,7 @@ describe('UserController', () => {
     it('should return status code 200', async () => {
       await getByIdUser(req, res, () => {});
       expect(userService.getById.called).to.have.been.true;
-      expect(res.status.calledWith(userMock.status.OK)).to.be.true;
+      expect(res.status.calledWith(statusMock.OK)).to.be.true;
     })
 
     it('should return one user', async () => {
@@ -91,7 +91,7 @@ describe('UserController', () => {
     it('should return status code 204', async () => {
       await deleteUserById(req, res, () => {});
       expect(userService.deleteUserById.called).to.have.been.true;
-      expect(res.status.calledWith(userMock.status.NO_CONTENT)).to.be.true;
+      expect(res.status.calledWith(statusMock.NO_CONTENT)).to.be.true;
     })
 
     it('should return an empty body', async () => {
