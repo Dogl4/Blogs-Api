@@ -19,7 +19,9 @@
     "init": "npx sequelize-cli db:create && npx sequelize-cli db:migrate $",
     "seed": "npx sequelize-cli db:seed:all $",
     "dev": "npx nodemon index.js",
-    "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json ."
+    "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json .",
+    "pretest": "npm run drop && npm run init && npm run seed",
+    "test": "npm run pretest && mocha tests/**/**/*.test.js"
   },
   "devDependencies": {
     "chai": "^4.3.6",
