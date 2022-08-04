@@ -23,6 +23,9 @@ API para um blog. Desenvolvida em [Node.js](https://nodejs.org/en/), com [JavaSc
 - [Joi](https://www.npmjs.com/package/joi): Validação de dados.
 - [JWT](https://www.npmjs.com/package/jsonwebtoken): Autenticação.
 - [Dotenv](https://www.npmjs.com/package/dotenv): Carregamento de variáveis de ambiente.
+- [Mocha](https://mochajs.org/): Framework de testes.
+- [Chai](https://www.npmjs.com/package/chai): Framework de testes.
+- [Sinon](https://www.npmjs.com/package/sinon): Framework de testes.
 </details>
 
 ## Rodando API localmente
