@@ -74,6 +74,13 @@ API para um blog. Desenvolvida em [Node.js](https://nodejs.org/en/), com [JavaSc
     > A porta padrão é `3000`. Você pode alterar isso renomeando o arquivo `.env.example` para `.env` e modificando o valor da variável `PORT`.
     </details>
 
+## Test
+
+```bash
+# unit test
+$ npm run test
+```
+
 ## Endpoints
 
 >  Use algum dos seguintes programas para fazer as requisições: [Postman](https://www.postman.com/) ou [Thunder Client](https://www.thunderclient.com/) ou [Insomnia](https://insomnia.rest/).
