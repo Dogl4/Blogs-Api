@@ -25,7 +25,8 @@ const userMock = {
               "password": "123456",
               "image": "https://sportbuzz.uol.com.br/media/_versions/gettyimages-52491565_widelg.jpg"
           }
-        ]
+        ],
+  id: "1",
 }
 
 module.exports = userMock;
