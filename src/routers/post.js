@@ -2,8 +2,9 @@ const router = require('express').Router();
 const rescue = require('express-rescue');
 const { postController } = require('../controllers');
 const { authJwt } = require('../middlewares');
+const { post } = require('../schemas');
 
-router.post('/', authJwt, rescue(postController.registerPost));
+router.post('/', authJwt, post, rescue(postController.registerPost));
 router.get('/', authJwt, rescue(postController.getAllPosts));
 router.get('/search', authJwt, rescue(postController.findPostByTitle));
 router.get('/:id', authJwt, rescue(postController.getPostById));
