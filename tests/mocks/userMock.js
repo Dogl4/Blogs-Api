@@ -8,6 +8,7 @@ const userMock = {
   status: {
     CREATED: 201,
     OK: 200,
+    NO_CONTENT: 204,
   },
   token: 'a56465889684fdsdfds834f65¨$$^.nmjh',
   list: [

@@ -1,8 +1,8 @@
 const { expect } = require('chai');
-const { before, after } = require('mocha');
+const { before } = require('mocha');
 const Sinon = require('sinon');
 
-const { registerUser, getAllUsers, getByIdUser } = require('../../../src/controllers/userController');
+const { registerUser, getAllUsers, getByIdUser, deleteUserById } = require('../../../src/controllers/userController');
 const { userService } = require('../../../src/services');
 const { userMock } = require('../../mocks');
 
@@ -77,5 +77,27 @@ describe('UserController', () => {
     })
   })
 
-  describe('#deleteUserById', () => {})
+  describe('#deleteUserById', () => {
+    const req = {}
+    const res = {}
+
+    before(() => {
+      res.status = Sinon.stub().returns(res);
+      req.user = userMock.list[0];
+      res.end = Sinon.stub();
+      Sinon.stub(userService, 'deleteUserById').returns(userMock.list[0]);
+    })
+
+    it('should return status code 204', async () => {
+      await deleteUserById(req, res, () => {});
+      expect(userService.deleteUserById.called).to.have.been.true;
+      expect(res.status.calledWith(userMock.status.NO_CONTENT)).to.be.true;
+    })
+
+    it('should return an empty body', async () => {
+      await deleteUserById(req, res, () => {});
+      expect(res.end.called).to.have.been.true;
+      expect(res.end.args[0][0]).to.be.equal();
+    })
+  })
 })
