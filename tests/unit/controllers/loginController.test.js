@@ -6,7 +6,7 @@ const { connecting } = require('../../../src/controllers/loginController');
 const { loginService } = require('../../../src/services');
 const { userMock, loginMock, statusMock } = require('../../mocks');
 
-describe('loginController', () => {
+describe('Login Controller', () => {
   describe('#connecting', () => {
     const req = {}
     const res = {}
