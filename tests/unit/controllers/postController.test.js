@@ -6,6 +6,7 @@ const {
   registerPost,
   getAllPosts,
   getPostById,
+  editPostById,
 } = require('../../../src/controllers/postController');
 const { postService } = require('../../../src/services');
 const { postMock, statusMock } = require('../../mocks');
@@ -77,6 +78,29 @@ describe('Post Controller', () => {
       await getPostById(req, res, () => {});
       expect(res.json.args[0][0]).to.be.an('object');
       expect(res.json.args[0][0]).to.be.equal(postMock.list[0]);
+    })
+  })
+
+  describe('#editPostById', () => {
+    const req = {}
+    const res = {}
+
+    before(() => {
+      res.status = Sinon.stub().returns(res);
+      req.body = postMock.body;
+      req.params = { id: postMock.idThree };
+      res.json = Sinon.stub();
+      Sinon.stub(postService, 'editPostById').returns(postMock.resultEdit);
+    })
+
+    it('should return status code 200', async () =>{
+      await editPostById(req, res, () => {});
+      expect(res.status.calledWith(statusMock.OK)).to.be.true;
+    })
+
+    it('should return a post edited', async () => {
+      await editPostById(req, res, () => {});
+      expect(res.json.args[0][0]).to.be.equal(postMock.resultEdit);
     })
   })
 })

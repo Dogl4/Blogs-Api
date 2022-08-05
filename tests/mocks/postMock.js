@@ -95,6 +95,24 @@ const postMock = {
           }
         ],
   id: "1",
+  idThree: "2",
+  edit: {
+    "title": "Refletir sobre o vôo",
+    "content": "Foguete tem ré"
+  },
+  resultEdit: {
+    "0": {
+        "id": 1,
+        "name": "Inovação"
+    },
+    "1": {
+        "id": 2,
+        "name": "Escola"
+    },
+    "title": "Refletir sobre o vôo",
+    "content": "Foguete tem ré",
+    "userId": 3
+  }
 }
 
 module.exports = postMock;
