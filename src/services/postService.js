@@ -6,6 +6,11 @@ const existsCategorie = async (categorieId) => {
   if (!exists) generateError('NotFound', '"categoryIds" not found');
 };
 
+const existsPost = async (id) => {
+  const exists = await postModel.getPostByIdClean(id);
+  if (!exists) generateError('NotFound', '"id" not found');
+}
+
 const createPost = async ({ user, body }) => {
   const { title, content, categoryIds } = body;
   const userDb = await userModel.getUserByEmail(user);
@@ -32,11 +37,13 @@ const getPostById = async (id) => {
 };
 
 const editPostById = async ({ id, user, body: { title, content } }) => {
+  await existsPost(id);
+  const postDB = await postModel.getPostByIdClean(id);
   const userDb = await userModel.getUserByEmail(user);
-  const { categories } = await postModel.getPostByIdClean(id);
+  if (!userDb || postDB?.user.id !== userDb.id) generateError('Unauthorized', 'You can only edit your own posts');
   const editPost = { userId: userDb.id, title, content };
   await postModel.editPostById({ id, editPost });
-  return { title, content, userId: userDb.id, categories };
+  return { title, content, userId: userDb.id, ...postDB.categories };
 };
 
 const deletePostById = async (params) => {
