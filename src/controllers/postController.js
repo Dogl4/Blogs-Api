@@ -1,5 +1,4 @@
 const { postService } = require('../services');
-const { editPost } = require('../schemas');
 
 const registerPost = async (req, res, _next) => {
   const newPost = await postService.createPost(req);
@@ -19,7 +18,6 @@ const getPostById = async (req, res, _next) => {
 
 const editPostById = async ({ user, body, params }, res, _next) => {
   const { id } = params;
-  editPost(body);
   const editedPost = await postService.editPostById({ id: +id, user, body });
   res.status(200).json(editedPost);
 };
