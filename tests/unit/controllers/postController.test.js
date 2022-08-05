@@ -7,6 +7,7 @@ const {
   getAllPosts,
   getPostById,
   editPostById,
+  deletePostById,
 } = require('../../../src/controllers/postController');
 const { postService } = require('../../../src/services');
 const { postMock, statusMock } = require('../../mocks');
@@ -101,6 +102,30 @@ describe('Post Controller', () => {
     it('should return a post edited', async () => {
       await editPostById(req, res, () => {});
       expect(res.json.args[0][0]).to.be.equal(postMock.resultEdit);
+    })
+  })
+
+  describe('#deletePostById', () => {
+    const req = {}
+    const res = {}
+
+    before(() => {
+      res.status = Sinon.stub().returns(res);
+      req.user = postMock.list[0];
+      res.end = Sinon.stub();
+      Sinon.stub(postService, 'deletePostById').returns();
+    })
+
+    it('should return status code 204', async () => {
+      await deletePostById(req, res, () => {});
+      expect(postService.deletePostById.called).to.have.been.true;
+      expect(res.status.calledWith(statusMock.NO_CONTENT)).to.be.true;
+    })
+
+    it('should return an empty body', async () => {
+      await deletePostById(req, res, () => {});
+      expect(res.end.called).to.have.been.true;
+      expect(res.end.args[0][0]).to.be.equal();
     })
   })
 })
