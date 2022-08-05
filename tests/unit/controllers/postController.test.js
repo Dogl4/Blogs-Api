@@ -8,6 +8,7 @@ const {
   getPostById,
   editPostById,
   deletePostById,
+  findPostByTitle,
 } = require('../../../src/controllers/postController');
 const { postService } = require('../../../src/services');
 const { postMock, statusMock } = require('../../mocks');
@@ -112,6 +113,7 @@ describe('Post Controller', () => {
     before(() => {
       res.status = Sinon.stub().returns(res);
       req.user = postMock.list[0];
+      req.params = { id: postMock.id };
       res.end = Sinon.stub();
       Sinon.stub(postService, 'deletePostById').returns();
     })
@@ -126,6 +128,28 @@ describe('Post Controller', () => {
       await deletePostById(req, res, () => {});
       expect(res.end.called).to.have.been.true;
       expect(res.end.args[0][0]).to.be.equal();
+    })
+  })
+
+  describe('#findPostByTitle', () => {
+    const req = {}
+    const res = {}
+
+    before(() => {
+      res.status = Sinon.stub().returns(res);
+      req.query = { q: postMock.title };
+      res.json = Sinon.stub();
+      Sinon.stub(postService, 'findPostByTitle').returns(postMock.list[1]);
+    })
+
+    it('should return status code 200', async () =>{
+      await findPostByTitle(req, res, () => {});
+      expect(res.status.calledWith(statusMock.OK)).to.be.true;
+    })
+
+    it('should return a post edited', async () => {
+      await findPostByTitle(req, res, () => {});
+      expect(res.json.args[0][0]).to.be.equal(postMock.list[1]);
     })
   })
 })

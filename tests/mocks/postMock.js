@@ -112,7 +112,8 @@ const postMock = {
     "title": "Refletir sobre o vôo",
     "content": "Foguete tem ré",
     "userId": 3
-  }
+  },
+  title: "vamos"
 }
 
 module.exports = postMock;
