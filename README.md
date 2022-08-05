@@ -722,7 +722,6 @@ $ npm run test
       ```
 </details>
 
-
 - <details>
       <summary>🔐 <strong>GET</strong> (um post por título)</summary>
 
@@ -776,6 +775,97 @@ $ npm run test
       ```json
       {
           "message": "Expired or invalid token"
+      }
+      ```
+</details>
+
+- <details>
+      <summary>🔐 <strong>PUT</strong> (edit um post)</summary>
+
+  - Url:
+     - `/post/:id`
+     - Exemplo: `http://localhost:3000/post/1`
+  - Request:
+    - Headers:
+      ```json
+        {
+            "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc0FkbWluIjpmYWxzZSwidXNlckVtYWlsIjoiZG9vdWdsbGFzQGhvdG1haWwuY29tLmJyIiwiaWF0IjoxNjU5NTI1NjgzLCJleHAiOjE2NTk2MTIwODMsInN1YiI6ImRvb3VnbGxhc0Bob3RtYWlsLmNvbS5iciJ9.HlIe_JlHWPBdqyh80fCR-umYbVwy0aFqaGIMI63kgWQ",
+        }
+      ```
+    - Body:
+      ```json
+      {
+          "title": "Refletir sobre o vôo",
+          "content": "Foguete tem ré"
+      }
+      ```
+
+  - Response sucesso:
+    - Status: `200 OK`
+    - Body:
+      ```json
+      {
+          "0": {
+              "id": 1,
+              "name": "Inovação"
+          },
+          "1": {
+              "id": 2,
+              "name": "Escola"
+          },
+          "title": "Refletir sobre o vôo",
+          "content": "Foguete tem ré",
+          "userId": 3
+      }
+      ```
+
+  - Response erro:
+    - Status: `400 Bad Request`
+    - Body:
+      ```json
+      {
+          "message": "\"title\" is required"
+      }
+      ```
+      ```json
+      {
+          "message": "\"title\" is not allowed to be empty"
+      }
+      ```
+      ```json
+      {
+          "message": "\"content\" is required"
+      }
+      ```
+      ```json
+      {
+          "message": "\"content\" is not allowed to be empty"
+      }
+      ```
+
+    - Status: `401 Unauthorized`
+    - Body: 
+      ```json
+      {
+          "message": "Token not found"
+      }
+      ```
+      ```json
+      {
+          "message": "Expired or invalid token"
+      }
+      ```
+      ```json
+      {
+          "message": "You can only edit your own posts"
+      }
+      ```
+
+    - Status: `404 Not Found`
+    - Body: 
+      ```json
+      {
+          "message": "Post does not exist"
       }
       ```
 </details>
