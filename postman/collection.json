@@ -187,7 +187,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc0FkbWluIjpmYWxzZSwidXNlckVtYWlsIjoiZG9vdWdsbGFzQGhvdG1haWwuY29tLmJyIiwiaWF0IjoxNjU5NTI4MDcwLCJleHAiOjE2NTk2MTQ0NzAsInN1YiI6ImRvb3VnbGxhc0Bob3RtYWlsLmNvbS5iciJ9.rjE_3RP_1T0TZ7yzm3r38NGAfn0PwsFoO3gfnZ6M6m0",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc0FkbWluIjpmYWxzZSwidXNlckVtYWlsIjoiZG9vdWdsbGFzQGhvdG1haWwuY29tLmJyIiwiaWF0IjoxNjU5NjQzMjQzLCJleHAiOjE2NTk3Mjk2NDMsInN1YiI6ImRvb3VnbGxhc0Bob3RtYWlsLmNvbS5iciJ9.isK1eFT6wBrO3WYMApp-FHuPwLs6OrsdNTb2EHb4WVE",
 								"type": "text"
 							}
 						],
@@ -224,7 +224,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc0FkbWluIjpmYWxzZSwidXNlckVtYWlsIjoiZG9vdWdsbGFzQGhvdG1haWwuY29tLmJyIiwiaWF0IjoxNjU5NTI3NDM3LCJleHAiOjE2NTk2MTM4MzcsInN1YiI6ImRvb3VnbGxhc0Bob3RtYWlsLmNvbS5iciJ9.L1X-bnz7fnoMIoLQT4O-0wZKi0Kmu7Tn6B2SXRKTBcQ",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc0FkbWluIjpmYWxzZSwidXNlckVtYWlsIjoiZG9vdWdsbGFzQGhvdG1haWwuY29tLmJyIiwiaWF0IjoxNjU5NjQzMjQzLCJleHAiOjE2NTk3Mjk2NDMsInN1YiI6ImRvb3VnbGxhc0Bob3RtYWlsLmNvbS5iciJ9.isK1eFT6wBrO3WYMApp-FHuPwLs6OrsdNTb2EHb4WVE",
 								"type": "text"
 							}
 						],
@@ -360,6 +360,41 @@
 							"path": [
 								"post",
 								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit one post",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc0FkbWluIjpmYWxzZSwidXNlckVtYWlsIjoiZG9vdWdsbGFzQGhvdG1haWwuY29tLmJyIiwiaWF0IjoxNjU5NjIxODk1LCJleHAiOjE2NTk3MDgyOTUsInN1YiI6ImRvb3VnbGxhc0Bob3RtYWlsLmNvbS5iciJ9.Yo2XgIEwsPFzp6tTIKHgW7jDkbCOyaLTiL7NlL2PNV0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Refletir sobre o vôo\",\n    \"content\": \"Foguete tem ré\"\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/post/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"post",
+								"3"
 							]
 						}
 					},

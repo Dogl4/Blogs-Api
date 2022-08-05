@@ -6,7 +6,7 @@ const { registerUser, getAllUsers, getByIdUser, deleteUserById } = require('../.
 const { userService } = require('../../../src/services');
 const { userMock, statusMock } = require('../../mocks');
 
-describe('UserController', () => {
+describe('User Controller', () => {
   describe('#registerUser', () => {
     const req = {}
     const res = {}
