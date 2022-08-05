@@ -9,7 +9,7 @@ API para um blog. Desenvolvida em [Node.js](https://nodejs.org/en/), com [JavaSc
 
 | [<img alt="Screenshot da API" height="400" width="auto" src="./images/blogApi.gif">](./images/blogApi.gif "Screenshot da API") |
 |--------------------------------------------------------------------------------------------------------------------------------|
-| **Figura** **1.1** - Gif da API                                                                                                |
+| **Figura** **1.1** Gif da API                                                                                                  |
 </details>
 
 <details>
@@ -26,6 +26,99 @@ API para um blog. Desenvolvida em [Node.js](https://nodejs.org/en/), com [JavaSc
 - [Mocha](https://mochajs.org/): Framework de testes.
 - [Chai](https://www.npmjs.com/package/chai): Framework de testes.
 - [Sinon](https://www.npmjs.com/package/sinon): Framework de testes.
+</details>
+
+
+<details>
+  <summary>🌳 <strong>Estrutura do repositório</strong></summary><br />
+
+```bash
+├── images
+│   ├── blogApi.gif
+│   └── testCov.png
+├── index.js
+├── package.json
+├── package-lock.json
+├── postman
+│   └── collection.json
+├── README.md
+├── src
+│   ├── api
+│   │   └── app.js
+│   ├── controllers
+│   │   ├── categoryController.js
+│   │   ├── index.js
+│   │   ├── loginController.js
+│   │   ├── postController.js
+│   │   └── userController.js
+│   ├── db
+│   │   ├── config
+│   │   │   └── config.js
+│   │   ├── entity
+│   │   │   ├── blogpost.js
+│   │   │   ├── category.js
+│   │   │   ├── index.js
+│   │   │   ├── postscategory.js
+│   │   │   └── user.js
+│   │   ├── migrations
+│   │   │   ├── 20220204204959-create-user.js
+│   │   │   ├── 20220204215120-create-category.js
+│   │   │   ├── 20220208181616-create-blog-post.js
+│   │   │   └── 20220208224023-create-posts-category.js
+│   │   └── seeders
+│   │       ├── 20200812183211-Users.js
+│   │       ├── 20200812184236-Categories.js
+│   │       ├── 20200812194353-BlogPosts.js
+│   │       └── 20210430010915-PostsCategories.js
+│   ├── middlewares
+│   │   ├── authJwt.js
+│   │   ├── domain-error.js
+│   │   ├── generateError.js
+│   │   ├── index.js
+│   │   ├── joi-error.js
+│   │   ├── jwt.js
+│   │   └── server-error.js
+│   ├── models
+│   │   ├── categoryModel.js
+│   │   ├── index.js
+│   │   ├── loginModel.js
+│   │   ├── postModel.js
+│   │   └── userModel.js
+│   ├── routers
+│   │   ├── categories.js
+│   │   ├── index.js
+│   │   ├── login.js
+│   │   ├── post.js
+│   │   └── user.js
+│   ├── schemas
+│   │   ├── category.js
+│   │   ├── editPost.js
+│   │   ├── index.js
+│   │   ├── login.js
+│   │   ├── post.js
+│   │   └── user.js
+│   └── services
+│       ├── categoryService.js
+│       ├── index.js
+│       ├── loginService.js
+│       ├── postService.js
+│       └── userService.js
+└── tests
+    ├── mocks
+    │   ├── categoryMock.js
+    │   ├── index.js
+    │   ├── loginMock.js
+    │   ├── postMock.js
+    │   └── userMock.js
+    └── unit
+        ├── controllers
+        │   ├── categoryController.test.js
+        │   ├── loginController.test.js
+        │   ├── postController.test.js
+        │   └── userController.test.js
+        ├── models
+        └── services
+```
 </details>
 
 ## Rodando API localmente
@@ -72,7 +165,7 @@ API para um blog. Desenvolvida em [Node.js](https://nodejs.org/en/), com [JavaSc
     $ kill -9 $(lsof -t -i:3000)
     ```
     <details>
-      <summary><strong>Modificando a porta</strong></summary><br />
+      <summary>🚪 <strong>Modificando a porta</strong></summary><br />
 
     > A porta padrão é `3000`. Você pode alterar isso renomeando o arquivo `.env.example` para `.env` e modificando o valor da variável `PORT`.
     </details>
@@ -82,7 +175,17 @@ API para um blog. Desenvolvida em [Node.js](https://nodejs.org/en/), com [JavaSc
 ```bash
 # unit test
 $ npm run test
+
+# test coverage
+$ npm run test:cov
 ```
+<details>
+  <summary>🛠 <strong>Imagem de cobertura de test</strong></summary><br />
+
+ | [<img alt="Screenshot da cobertura de test" height="500" width="auto" src="./images/testCov.png">](./images/testCov.png "Cobertura de testes")   |
+ |--------------------------------------------------------------------------------------------------------------------------------------------------|
+ | **Figura** **2.1** Cobertura de testes (`npm run test:cov`)                                                                 |
+</details>
 
 ## Endpoints
 
